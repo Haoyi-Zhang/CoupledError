@@ -1,0 +1,25 @@
+{
+  "cpu_seconds": 0.004174204000000015,
+  "peak_rss_kib": 97836,
+  "result": {
+    "correct_output": 64,
+    "correct_without_monitor": 52,
+    "monitor_false_positives": 0,
+    "monitor_true": 12,
+    "replacement_loss": "1/2",
+    "source_case": {
+      "new": {
+        "actual_toy_output": "1/2",
+        "cache_scalar": "1/2"
+      },
+      "old": {
+        "actual_toy_output": "1",
+        "cache_scalar": "1/2"
+      }
+    },
+    "truth_table_rows": 128
+  },
+  "stage": "pipeline",
+  "wall_seconds": 0.0035091160002593824,
+  "workers": 1
+}

@@ -1,0 +1,22 @@
+{
+  "result": {
+    "labeled_posets_by_size": {
+      "2": 3,
+      "3": 19,
+      "4": 219
+    },
+    "total_labeled_posets": 241,
+    "law_denominator": 2,
+    "ordered_law_pairs": 22611,
+    "ordered_law_triples": 223185,
+    "flow_upward_set_mismatches": 0,
+    "triangle_violations": 0,
+    "target_monitor_upward_violations": 0,
+    "maximum_upward_sets_including_empty": 16,
+    "scope": "exhaustive finite check over every labeled poset with two to four outcomes; not a proof for arbitrary finite posets"
+  },
+  "wall_seconds": 0.7261305079999829,
+  "cpu_seconds": 0.7249487290000001,
+  "peak_rss_kib": 93176,
+  "one_worker": true
+}

@@ -1,0 +1,12 @@
+{
+  "cpu_seconds": 0.007954986999999969,
+  "peak_rss_kib": 97836,
+  "result": {
+    "corrupted_certificates_rejected": 12,
+    "invalid_sources_or_domains_rejected": 8,
+    "semantic_counterexamples": 7
+  },
+  "stage": "controls",
+  "wall_seconds": 0.009272299999793177,
+  "workers": 1
+}

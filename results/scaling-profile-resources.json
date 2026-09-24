@@ -1,0 +1,132 @@
+{
+  "result": {
+    "cases": [
+      {
+        "order": "chain",
+        "outcomes": 2,
+        "nonempty_upward_sets": 2,
+        "transport_cells": 4,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "chain",
+        "outcomes": 3,
+        "nonempty_upward_sets": 3,
+        "transport_cells": 9,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "chain",
+        "outcomes": 4,
+        "nonempty_upward_sets": 4,
+        "transport_cells": 16,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "chain",
+        "outcomes": 5,
+        "nonempty_upward_sets": 5,
+        "transport_cells": 25,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "chain",
+        "outcomes": 6,
+        "nonempty_upward_sets": 6,
+        "transport_cells": 36,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "chain",
+        "outcomes": 7,
+        "nonempty_upward_sets": 7,
+        "transport_cells": 49,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "chain",
+        "outcomes": 8,
+        "nonempty_upward_sets": 8,
+        "transport_cells": 64,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "antichain",
+        "outcomes": 2,
+        "nonempty_upward_sets": 3,
+        "transport_cells": 4,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "antichain",
+        "outcomes": 3,
+        "nonempty_upward_sets": 7,
+        "transport_cells": 9,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "antichain",
+        "outcomes": 4,
+        "nonempty_upward_sets": 15,
+        "transport_cells": 16,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "antichain",
+        "outcomes": 5,
+        "nonempty_upward_sets": 31,
+        "transport_cells": 25,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "antichain",
+        "outcomes": 6,
+        "nonempty_upward_sets": 63,
+        "transport_cells": 36,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "antichain",
+        "outcomes": 7,
+        "nonempty_upward_sets": 127,
+        "transport_cells": 49,
+        "certificate_value": "1",
+        "exact_replay": true
+      },
+      {
+        "order": "antichain",
+        "outcomes": 8,
+        "nonempty_upward_sets": 255,
+        "transport_cells": 64,
+        "certificate_value": "1",
+        "exact_replay": true
+      }
+    ],
+    "cases_checked": 14,
+    "supported_outcome_range": [
+      2,
+      8
+    ],
+    "maximum_nonempty_upward_sets": 255,
+    "maximum_transport_cells": 64,
+    "failures": 0,
+    "scope": "bounded structural profile of the explicit reference implementation; timings are excluded from scientific claims",
+    "limitation": "antichain upward sets grow as 2^n-1, so the reference encoding is not a scalability result"
+  },
+  "wall_seconds": 0.07819897800004583,
+  "cpu_seconds": 0.07819745400000011,
+  "peak_rss_kib": 120996,
+  "one_worker": true
+}

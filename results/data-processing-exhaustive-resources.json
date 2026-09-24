@@ -1,0 +1,20 @@
+{
+  "result": {
+    "source_posets": 22,
+    "target_posets": 22,
+    "source_target_poset_pairs": 484,
+    "deterministic_monotone_maps": 4732,
+    "deterministic_law_pair_map_checks": 159957,
+    "deterministic_data_processing_violations": 0,
+    "stochastically_monotone_kernels": 24972,
+    "stochastic_law_pair_kernel_checks": 864081,
+    "stochastic_data_processing_violations": 0,
+    "source_law_denominator": 2,
+    "kernel_row_denominator": 2,
+    "scope": "exhaustive deterministic-map and denominator-two stochastic-kernel check over all labeled two- and three-outcome posets; not a proof for arbitrary kernels"
+  },
+  "wall_seconds": 1.4798922379998203,
+  "cpu_seconds": 1.4798363119999998,
+  "peak_rss_kib": 92964,
+  "one_worker": true
+}

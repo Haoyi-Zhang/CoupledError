@@ -1,0 +1,9 @@
+{
+  "role": "bounded pre-lock prototype validation; not held-out deployment evaluation",
+  "grid": {"states": 2, "prior": ["1/2", "1/2"], "success_coordinates": ["0", "1/4", "1/2"], "old_generators": [1, 2], "new_generators": [1, 2], "oracle_cell_denominator": 8},
+  "hard_pilot": {"seed": 417, "instances": 8, "states": 4, "generators_each": 5},
+  "additional_rational_cases": {"seed": 418, "instances": 12, "states": [3, 4], "generators_each": [3, 4, 5]},
+  "payload": {"values": [0, 1, 2, 3], "boundary_bits": 1, "success_bits": 4, "all_assignments": true},
+  "limits": {"workers": 1, "cpu_seconds_per_stage": 40, "address_space_mib": 3500, "campaign_cpu_hours_ceiling": 8, "repair_reproduction_fraction_reserved_at_least": "1/4"},
+  "failure_conditions": ["primal-dual disagreement", "oracle disagreement", "invalid certificate accepted", "scope-violating source accepted", "success monitor implies an incorrect output"]
+}

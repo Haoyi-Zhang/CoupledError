@@ -1,0 +1,15 @@
+{
+  "stage": "poset-sweep",
+  "workers": 1,
+  "result": {
+    "posets": 6,
+    "ordered_pairs": 1116,
+    "transport_upset_mismatches": 0,
+    "triangle_triples": 19064,
+    "triangle_violations": 0,
+    "target_monitor_upward_violations": 0
+  },
+  "cpu_seconds": 0.020203476999999914,
+  "wall_seconds": 0.022544047999986105,
+  "peak_rss_kib": 92716
+}

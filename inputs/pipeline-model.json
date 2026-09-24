@@ -1,0 +1,149 @@
+{
+  "interface": {
+    "boundary": [
+      "hit"
+    ],
+    "private": [
+      "fault"
+    ],
+    "frame": [
+      "pre",
+      "idx",
+      "srv"
+    ],
+    "success": "cache",
+    "constraints": [
+      {
+        "event": [
+          "or",
+          [
+            "and",
+            "cache",
+            [
+              "not",
+              "fault"
+            ]
+          ],
+          [
+            "and",
+            [
+              "not",
+              "cache"
+            ],
+            "fault"
+          ]
+        ],
+        "lower": "1",
+        "upper": "1"
+      },
+      {
+        "event": [
+          "and",
+          "pre",
+          "idx",
+          "srv"
+        ],
+        "lower": "1",
+        "upper": "1"
+      }
+    ],
+    "monitor": [
+      "and",
+      "pre",
+      "idx",
+      "srv",
+      [
+        "or",
+        [
+          "not",
+          "hit"
+        ],
+        "cache"
+      ]
+    ]
+  },
+  "old": {
+    "variables": [
+      "hit",
+      "fault",
+      "cache"
+    ],
+    "laws": [
+      [
+        {
+          "assignment": [
+            0,
+            1,
+            0
+          ],
+          "mass": "1/2"
+        },
+        {
+          "assignment": [
+            1,
+            0,
+            1
+          ],
+          "mass": "1/2"
+        }
+      ]
+    ]
+  },
+  "new": {
+    "variables": [
+      "hit",
+      "fault",
+      "cache"
+    ],
+    "laws": [
+      [
+        {
+          "assignment": [
+            0,
+            0,
+            1
+          ],
+          "mass": "1/2"
+        },
+        {
+          "assignment": [
+            1,
+            1,
+            0
+          ],
+          "mass": "1/2"
+        }
+      ]
+    ]
+  },
+  "frame": {
+    "variables": [
+      "hit",
+      "pre",
+      "idx",
+      "srv"
+    ],
+    "laws": [
+      [
+        {
+          "assignment": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "mass": "1/2"
+        },
+        {
+          "assignment": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mass": "1/2"
+        }
+      ]
+    ]
+  }
+}

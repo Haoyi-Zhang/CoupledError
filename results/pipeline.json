@@ -1,0 +1,18 @@
+{
+  "correct_output": 64,
+  "correct_without_monitor": 52,
+  "monitor_false_positives": 0,
+  "monitor_true": 12,
+  "replacement_loss": "1/2",
+  "source_case": {
+    "new": {
+      "actual_toy_output": "1/2",
+      "cache_scalar": "1/2"
+    },
+    "old": {
+      "actual_toy_output": "1",
+      "cache_scalar": "1/2"
+    }
+  },
+  "truth_table_rows": 128
+}

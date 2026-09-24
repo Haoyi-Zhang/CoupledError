@@ -1,0 +1,21 @@
+{
+  "result": {
+    "certificates_mutated": 24,
+    "mutations_attempted": 1636,
+    "mutations_rejected": 1636,
+    "unexpected_acceptances": 0,
+    "mutation_classes": {
+      "schema_delete": 120,
+      "schema_extra": 24,
+      "numeric_leaf": 1444,
+      "numeric_type": 24,
+      "list_shape": 24
+    },
+    "unexpected_examples": [],
+    "scope": "deterministic single-field mutation testing of retained order certificates; not a proof of checker correctness"
+  },
+  "wall_seconds": 0.7136499040000217,
+  "cpu_seconds": 0.7136239560000001,
+  "peak_rss_kib": 93740,
+  "one_worker": true
+}

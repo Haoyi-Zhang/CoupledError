@@ -1,0 +1,45 @@
+{
+  "boundary": [
+    "all"
+  ],
+  "poset": {
+    "outcomes": [
+      "fail",
+      "success"
+    ],
+    "leq": [
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  "old": {
+    "generators": [
+      {
+        "mass": [
+          [
+            "1/2",
+            "1/2"
+          ]
+        ]
+      }
+    ]
+  },
+  "new": {
+    "generators": [
+      {
+        "mass": [
+          [
+            "3/4",
+            "1/4"
+          ]
+        ]
+      }
+    ]
+  }
+}

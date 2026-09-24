@@ -1,0 +1,15 @@
+{
+  "cpu_seconds": 2.504051456,
+  "peak_rss_kib": 97836,
+  "result": {
+    "additional_seed": 418,
+    "certificates_replayed": 20,
+    "max_boundary_states": 4,
+    "max_generators_each": 5,
+    "mismatches": 0,
+    "pilot_seed": 417
+  },
+  "stage": "stress",
+  "wall_seconds": 2.504361069999959,
+  "workers": 1
+}

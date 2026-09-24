@@ -1,0 +1,24 @@
+{
+  "model": "one boundary; chain 0<1; binary frame; every monotone {0,1/2,1}-valued reward, with Boolean monitors checked separately",
+  "denominator": 3,
+  "reward_denominator": 2,
+  "point_laws": 4,
+  "nonempty_finite_contracts": 15,
+  "contract_pairs": 225,
+  "frame_laws": 4,
+  "monotone_boolean_monitors": 9,
+  "monotone_three_level_rewards": 36,
+  "boolean_contexts_enumerated": 36,
+  "reward_contexts_enumerated": 144,
+  "distinct_component_frame_couplings": 20,
+  "boolean_mismatches": 0,
+  "reward_mismatches": 0,
+  "mismatches": 0,
+  "formula_value_histogram_in_units_of_one_third": {
+    "0": 155,
+    "1": 42,
+    "2": 20,
+    "3": 8
+  },
+  "scope": "bounded exhaustive semantic cross-check; not a proof of the general theorem"
+}

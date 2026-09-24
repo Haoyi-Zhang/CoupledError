@@ -1,0 +1,15 @@
+{
+  "stage": "independent-contract-oracle",
+  "workers": 1,
+  "result": {
+    "tasks": 50,
+    "target_generators": 99,
+    "strict_interior_minimizer_targets": 31,
+    "pure_test_strict_gap_targets": 9,
+    "mixed_test_duality_mismatches": 0,
+    "mismatches": 0
+  },
+  "cpu_seconds": 0.33291984100000005,
+  "wall_seconds": 0.33446575499999653,
+  "peak_rss_kib": 122276
+}

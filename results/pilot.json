@@ -1,0 +1,30 @@
+{
+  "workers": 1,
+  "cases": [
+    {
+      "case": "interior-mixture",
+      "loss": "0",
+      "new_vertices": 1
+    },
+    {
+      "case": "boundary-sensitive",
+      "loss": "1/2",
+      "new_vertices": 1
+    },
+    {
+      "case": "variable-prior",
+      "loss": "1/2",
+      "new_vertices": 3
+    },
+    {
+      "case": "zero-mass",
+      "loss": "1/4",
+      "new_vertices": 1
+    }
+  ],
+  "negative_control_old_vertex_only": "1/4",
+  "cpu_seconds": 0.006357862999999964,
+  "wall_seconds": 0.005862387999968632,
+  "peak_rss_kib": 97836,
+  "status": "finite exact checks passed; not a general mechanized proof"
+}

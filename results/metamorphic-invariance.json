@@ -1,0 +1,14 @@
+{
+  "named_tasks": 4,
+  "transformed_tasks_checked": 18,
+  "transformation_classes": {
+    "outcome-permutation": 10,
+    "combined-permutation-and-renaming": 4,
+    "old-generator-reversal": 2,
+    "new-generator-reversal": 1,
+    "boundary-permutation": 1
+  },
+  "value_or_replay_failures": 0,
+  "failure_examples": [],
+  "scope": "deterministic representation-invariance checks for named production tasks; not a completeness proof for the numerical certificate producer"
+}
