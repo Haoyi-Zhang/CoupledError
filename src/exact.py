@@ -8,6 +8,21 @@ from itertools import combinations
 from math import lcm
 
 
+def rat(value):
+    """Parse one bounded exact rational string."""
+    if type(value) is not str or not value or len(value) > 160:
+        raise ValueError('masses must be short exact rational strings')
+    if any(c not in '-0123456789/' for c in value):
+        raise ValueError('masses must be short exact rational strings')
+    try:
+        out = F(value)
+    except (ValueError, ZeroDivisionError) as exc:
+        raise ValueError('invalid exact rational mass') from exc
+    if out.numerator.bit_length() > 256 or out.denominator.bit_length() > 256:
+        raise ValueError('rational bit limit exceeded')
+    return out
+
+
 def dot(a, b):
     return sum((x*y for x, y in zip(a, b)), F(0))
 
@@ -73,11 +88,8 @@ def load_contract(obj):
     for v in obj['vertices']:
         if set(v) != {'p', 'a'} or len(v['p']) != k or len(v['a']) != k:
             raise ValueError('invalid vertex shape')
-        if any(type(x) is not str or len(x)>160 or not x or
-               any(c not in '-0123456789/' for c in x) for x in v['p']+v['a']):
-            raise ValueError('masses must be short exact rational strings')
-        p = tuple(F(x) for x in v['p'])
-        a = tuple(F(x) for x in v['a'])
+        p = tuple(rat(x) for x in v['p'])
+        a = tuple(rat(x) for x in v['a'])
         if sum(p) != 1 or any(not 0 <= x <= y for x,y in zip(a,p)):
             raise ValueError('invalid boundary-success masses')
         vertices.append((p,a))

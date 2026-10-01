@@ -43,6 +43,13 @@
   },
   "dependency": {
     "join_tree_global_cells": 8,
+    "generated_certificate_replayed": true,
+    "retained_certificate_replayed": true,
+    "retained_certificate_cells": 8,
+    "retained_matches_generated": true,
+    "single_cell_mutation_rejected": true,
+    "mutation_used_isolated_copy": true,
+    "retained_input_preserved": true,
     "negative_inputs_rejected": [
       "join-cycle-negative.json",
       "join-separator-negative.json"

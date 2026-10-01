@@ -215,10 +215,15 @@ one-sample event testing reports zero positive gap.  Write
       = max(lambda/2, (1-lambda)/2, lambda-1/2, 0).
 
 Its minimum is `1/4` at `lambda=1/2`.  The target-law frame of Theorem 3
-therefore witnesses contextual loss `1/4`.  If `C` is the nonconvex two-point
-set `{c1,c2}`, the loss is `1/2`.  This example simultaneously shows that
-correlated frames add observational power for set contracts and that
-convexifying the old alternatives can strictly improve a robust floor.
+therefore witnesses contextual loss `1/4`.  If the demonic old contract is the
+nonconvex two-point set `{c1,c2}`, its floor in this same target-law context is
+`1/2`; enlarging it to `conv{c1,c2}` can only make that old-contract floor
+nonincreasing, and here lowers it to `1/4`.  The replacement floor remains
+zero, so the contextual loss to the target decreases from `1/2` to `1/4`.
+This is a weakening of the old guarantee under a larger demonic contract, not
+an improvement of its robust floor.  The example simultaneously shows that
+correlated frames add observational power for set contracts and that treating
+convexification as a semantic no-op is unsound.
 
 ## 7. Pure-versus-mixed upward-test minimax
 
@@ -247,6 +252,14 @@ is convex in `n`: its epigraph is the projection of the convex epigraph of
 
 Only supplied replacement generators need certificates.  An old interior
 mixture may still be optimal and must not be replaced by endpoint inspection.
+For the retained two-generator oracle, “interior required” means that both
+endpoint objective values are strictly larger than the minimum.  This holds
+for 11 of 99 targets.  A weaker statement, “some interior optimum exists,”
+holds for 58 targets because it includes flat minimizer intervals touching one
+or both endpoints.  The implementation records both notions, the 31 targets
+whose finite breakpoint list explicitly contains an interior minimizer, and
+the 20 of those 31 for which an endpoint is also optimal.  Seed 813 and a
+constant objective are regression cases for the flat-interval classification.
 
 Enumerate the nonempty upward sets of `X`.  For a target generator, the exact
 primal linear program is

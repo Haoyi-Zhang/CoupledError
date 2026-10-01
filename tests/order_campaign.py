@@ -6,6 +6,7 @@ import os
 import random
 import resource
 import sys
+import tempfile
 import time
 from fractions import Fraction as F
 from pathlib import Path
@@ -150,7 +151,33 @@ def main():
 
     pos=json.loads((ROOT/'inputs/join-tree.json').read_text())
     jc=join_tree.certificate(pos)
-    cells=join_tree.replay(pos,jc)
+    generated_cells=join_tree.replay(pos,jc)
+
+    # The retained evidence is a real replay input, not a file copied and then
+    # compared with itself.  Re-establish it independently and require exact
+    # equality with the deterministic canonical certificate generated above.
+    retained_path=ROOT/'results/join-tree.certificate.json'
+    retained_jc=join_tree.read_json(retained_path)
+    retained_cells=join_tree.replay(pos,retained_jc)
+    if retained_jc != jc:
+        raise RuntimeError('retained join-tree certificate differs from canonical generation')
+
+    # One-cell corruption in an isolated copy must fail replay.  The retained
+    # input itself is never modified or deleted.
+    mutation_rejected=False
+    with tempfile.TemporaryDirectory(prefix='join-tree-single-cell-') as td:
+        mutated=copy.deepcopy(retained_jc)
+        first_cell=next(iter(mutated['law']))
+        mutated['law'][first_cell]='1/4' if mutated['law'][first_cell] != '1/4' else '1/3'
+        mutation_path=Path(td)/'mutated-join-tree.certificate.json'
+        mutation_path.write_text(json.dumps(mutated,indent=2)+'\n',encoding='utf-8')
+        try:
+            join_tree.replay(pos,join_tree.read_json(mutation_path))
+        except join_tree.Invalid:
+            mutation_rejected=True
+    if not mutation_rejected:
+        raise RuntimeError('single-cell join-tree corruption was accepted')
+
     rejected=[]
     for filename in ['join-cycle-negative.json','join-separator-negative.json']:
         try: join_tree.certificate(json.loads((ROOT/'inputs'/filename).read_text()))
@@ -168,7 +195,14 @@ def main():
       'relational_witness':{'direct_fixed_upset_gap':str(direct),
                             'correlated_frame_contextual_loss':str(contextual)},
       'point_oracle':grid,
-      'dependency':{'join_tree_global_cells':cells,
+      'dependency':{'join_tree_global_cells':generated_cells,
+                    'generated_certificate_replayed':True,
+                    'retained_certificate_replayed':True,
+                    'retained_certificate_cells':retained_cells,
+                    'retained_matches_generated':True,
+                    'single_cell_mutation_rejected':True,
+                    'mutation_used_isolated_copy':True,
+                    'retained_input_preserved':True,
                     'negative_inputs_rejected':rejected},
       'scope':'finite exact validation; written proofs establish the general finite theorems'
     }

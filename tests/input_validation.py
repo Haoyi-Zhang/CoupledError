@@ -80,6 +80,13 @@ def main():
         records.append(run(["src/order_run.py", str(path), str(temp / "x.json")],
                            1, "order-long-rational-rejected"))
 
+        huge_integer = copy.deepcopy(order_task)
+        huge_integer["old"]["generators"][0]["mass"][0][0] = 1 << 256
+        path = temp / "huge-json-integer.json"
+        path.write_text(json.dumps(huge_integer), encoding="utf-8")
+        records.append(run(["src/order_run.py", str(path), str(temp / "x.json")],
+                           1, "order-257-bit-json-integer-rejected"))
+
         nontransitive = {
             "boundary": ["s"],
             "poset": {"outcomes": ["a", "b", "c"],
@@ -91,6 +98,13 @@ def main():
         path.write_text(json.dumps(nontransitive), encoding="utf-8")
         records.append(run(["src/order_run.py", str(path), str(temp / "x.json")],
                            1, "order-nontransitive-rejected"))
+
+        boolean_index_cert = copy.deepcopy(order_cert)
+        boolean_index_cert["worst_generator"] = False
+        boolean_index_path = temp / "boolean-worst-generator.json"
+        boolean_index_path.write_text(json.dumps(boolean_index_cert), encoding="utf-8")
+        records.append(run(["src/order_verify.py", str(valid_task), str(boolean_index_path)],
+                           1, "order-boolean-worst-generator-rejected"))
 
         valid_cert = temp / "valid-cert.json"
         valid_cert.write_text(json.dumps(order_cert), encoding="utf-8")

@@ -2,7 +2,11 @@
   "scientific_files_compared": 51,
   "scientific_mismatches": 0,
   "contextual_certificates_replayed": 456,
-  "dependency_certificates_replayed": 1,
+  "dependency_certificate_objects": 1,
+  "dependency_generated_certificate_replays": 1,
+  "dependency_retained_certificate_replays": 1,
+  "dependency_retained_matches_generated": true,
+  "dependency_single_cell_mutations_rejected": 1,
   "multi_poset_pairs": 1116,
   "multi_poset_triangle_triples": 19064,
   "exhaustive_labeled_posets": 241,
@@ -17,143 +21,185 @@
   "exhaustive_reward_contexts": 144,
   "independent_contract_oracle_tasks": 50,
   "independent_contract_oracle_targets": 99,
-  "independent_contract_oracle_strict_interior_targets": 31,
+  "independent_contract_oracle_listed_interior_candidates": 31,
+  "independent_contract_oracle_interior_optimum_exists": 58,
+  "independent_contract_oracle_interior_required": 11,
+  "independent_contract_oracle_endpoint_also_optimal_among_listed": 20,
+  "independent_contract_oracle_both_endpoints_optimal": 31,
   "independent_contract_oracle_strict_pure_test_gaps": 9,
   "certificate_mutations_rejected": 1636,
   "metamorphic_transformed_tasks": 18,
   "structural_scaling_cases": 14,
-  "input_validation_cases": 12,
+  "input_validation_cases": 14,
+  "input_validation_expected_rejections": 12,
   "one_worker": true,
   "isolated_temporary_worktree": true,
-  "wall_seconds": 32.289824856999985,
-  "cpu_seconds": 32.270188502,
-  "peak_child_rss_kib": 122412,
-  "parent_peak_rss_kib": 100648,
+  "wall_seconds": 29.747187334999808,
+  "cpu_seconds": 29.728844699000003,
+  "peak_child_rss_kib": 122536,
+  "parent_peak_rss_kib": 101412,
   "stages": [
     {
       "command": "python3 tests/pilot.py",
-      "wall_seconds": 0.7057994110000436,
+      "wall_seconds": 0.5369390539999586,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/campaign.py grid",
-      "wall_seconds": 0.8954844599998069,
+      "wall_seconds": 0.8365021409999827,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/campaign.py stress",
-      "wall_seconds": 2.583579830999952,
+      "wall_seconds": 2.398275895999859,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/campaign.py pipeline",
-      "wall_seconds": 0.6435396879996915,
+      "wall_seconds": 0.5438029930000994,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/campaign.py controls",
-      "wall_seconds": 0.6202395559998877,
+      "wall_seconds": 0.5425412950000918,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/randomization.py",
-      "wall_seconds": 0.6041205589999663,
+      "wall_seconds": 0.5337183579999873,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/order_campaign.py",
-      "wall_seconds": 1.119852101000106,
+      "wall_seconds": 0.9725629429999572,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/poset_sweep.py",
-      "wall_seconds": 0.591970215999936,
+      "wall_seconds": 0.5252071510001315,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/all_posets_exhaustive.py",
-      "wall_seconds": 1.4764386510000804,
+      "wall_seconds": 1.1973909890000414,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/data_processing_exhaustive.py",
-      "wall_seconds": 2.168128224999691,
+      "wall_seconds": 1.935903344999815,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/context_exhaustive.py",
-      "wall_seconds": 0.6334354939999685,
+      "wall_seconds": 0.5055219250000391,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/independent_contract_oracle.py",
-      "wall_seconds": 1.3604620149999391,
+      "wall_seconds": 1.089847802000122,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/certificate_mutation.py",
-      "wall_seconds": 1.4158181090001563,
+      "wall_seconds": 1.1727020079999875,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/metamorphic_invariance.py",
-      "wall_seconds": 1.0805292989998634,
+      "wall_seconds": 0.8415087880000556,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/scaling_profile.py",
-      "wall_seconds": 0.9558057930003088,
+      "wall_seconds": 0.8080738459998429,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/input_validation.py",
-      "wall_seconds": 9.425973933000023,
+      "wall_seconds": 9.164028931000075,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 tests/campaign.py replay",
-      "wall_seconds": 0.6855693860002248,
+      "wall_seconds": 0.6043044190000728,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 src/run.py inputs/boundary-sensitive.json <temporary-worktree>/command-line-checks/certificate.json",
-      "wall_seconds": 0.6397274259998085,
+      "wall_seconds": 0.5069416690000708,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 src/verify.py inputs/boundary-sensitive.json <temporary-worktree>/command-line-checks/certificate.json",
-      "wall_seconds": 0.6315643449997879,
+      "wall_seconds": 0.541461862999995,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 src/run.py --source inputs/pipeline-model.json <temporary-worktree>/command-line-checks/certificate.json",
-      "wall_seconds": 0.6550531450002381,
+      "wall_seconds": 0.5028959960000066,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 src/verify.py <temporary-worktree>/command-line-checks/certificate.task.json <temporary-worktree>/command-line-checks/certificate.json",
-      "wall_seconds": 0.6070438960000502,
+      "wall_seconds": 0.5134528710000268,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 src/order_run.py inputs/order-relational.json <temporary-worktree>/command-line-checks/certificate.json",
-      "wall_seconds": 0.8967489719998412,
+      "wall_seconds": 0.7614152740000009,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 src/order_verify.py inputs/order-relational.json <temporary-worktree>/command-line-checks/certificate.json",
-      "wall_seconds": 0.5823690619999979,
+      "wall_seconds": 0.49737515900005747,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 src/join_tree.py inputs/join-tree.json <temporary-worktree>/command-line-checks/certificate.json",
-      "wall_seconds": 0.6197097980002582,
+      "wall_seconds": 0.5071793709998929,
+      "expected_exit": 0,
       "exit_code": 0
     },
     {
       "command": "python3 src/join_tree.py inputs/join-tree.json <temporary-worktree>/command-line-checks/certificate.json --verify",
-      "wall_seconds": 0.6110474179999983,
+      "wall_seconds": 0.5067986689998634,
+      "expected_exit": 0,
       "exit_code": 0
+    },
+    {
+      "command": "python3 src/join_tree.py inputs/join-tree.json results/join-tree.certificate.json --verify",
+      "wall_seconds": 0.5886478600000373,
+      "expected_exit": 0,
+      "exit_code": 0
+    },
+    {
+      "command": "python3 src/join_tree.py inputs/join-tree.json <temporary-worktree>/command-line-checks/join-tree-single-cell-mutated.json --verify",
+      "wall_seconds": 0.5458475870000257,
+      "expected_exit": 1,
+      "exit_code": 1
     }
   ],
   "scope": "finite exact reproduction, not a general mechanized proof or independent review"

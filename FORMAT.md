@@ -31,8 +31,9 @@ Each generator has exactly `mass`, a boundary-by-outcome matrix of nonnegative
 rational masses summing to one. Every generator within one contract must have
 the same boundary prior, and old and new priors must be equal. The list denotes
 its convex hull. The common denominator of all input masses is at most
-1,048,576. Rational strings have at most 160 characters and 256-bit numerator
-and denominator limits.
+1,048,576. Rational strings have at most 160 characters.  Whether supplied
+as a JSON integer or a rational string, every parsed numerator and denominator
+has a 256-bit limit; JSON Booleans are not rational integers.
 
 ### Order-coupling certificate
 
@@ -41,7 +42,8 @@ An accepted certificate has exactly:
 - `kind`: `"order-coupling-loss"`;
 - `value`: the global directed loss;
 - `proofs`: one proof in replacement-generator order;
-- `worst_generator`: an index attaining `value`;
+- `worst_generator`: a JSON integer index attaining `value` (Booleans are
+  rejected even though Python's `bool` is an `int` subclass);
 - `witness`: the target-law contextual witness.
 
 For each replacement generator `n`, a proof contains:
@@ -116,8 +118,8 @@ contains:
 The masses satisfy `sum(p)=1` and `0 <= a[s] <= p[s]`; `a[s]` is joint mass of
 state `s` and success. The vertex list denotes one global convex hull. Old and
 new contracts must have the same convex hull of priors. The input common
-denominator is at most 65,536; certificate rationals retain the 160-character
-and 256-bit limits.
+denominator is at most 65,536; all input and certificate rationals retain the
+160-character and 256-bit limits.
 
 A `contextual-loss` certificate records exact prior-hull containment witnesses
 and, for every new generator, an old same-prior mixture, positive-part slack,

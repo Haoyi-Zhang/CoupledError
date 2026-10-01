@@ -1,12 +1,13 @@
 """Reproduce all finite evidence in an isolated worktree and compare it.
 
 Run from the repository root: python3 reproduce.py
-The orchestration, replay, and exact oracles use the Python standard library.
-The reference order-certificate producer additionally requires SciPy; every
-produced candidate is accepted only after exact rational replay.  The supplied
-repository is never used as the generation workspace: all stages run in a
-fresh temporary copy and only the final volatile resource record is written
-back to the supplied tree.
+Replay-only verifiers and the self-contained finite enumerators use the Python
+standard library.  The full orchestration also runs the SciPy-backed order
+certificate producer and the differential contract driver that calls both the
+producer and replay checker.  Every produced candidate is accepted only after
+exact rational replay.  The supplied repository is never used as the
+generation workspace: all stages run in a fresh temporary copy and only the
+final volatile resource record is written back to the supplied tree.
 """
 import json
 import os
@@ -70,7 +71,7 @@ def main():
         command_dir = temp_root / "command-line-checks"
         command_dir.mkdir()
 
-        def execute(args):
+        def execute(args, expected=0):
             stage_start = time.perf_counter()
             completed = subprocess.run(
                 [sys.executable, *args],
@@ -78,16 +79,21 @@ def main():
                 capture_output=True,
                 text=True,
                 timeout=40,
-                check=True,
+                check=False,
             )
             display = "python3 " + " ".join(str(arg) for arg in args)
             display = display.replace(str(temp_root), "<temporary-worktree>")
             stages.append({
                 "command": display,
                 "wall_seconds": time.perf_counter() - stage_start,
+                "expected_exit": expected,
                 "exit_code": completed.returncode,
             })
-            if completed.stdout.strip():
+            if completed.returncode != expected:
+                raise RuntimeError(
+                    f"{display}: expected exit {expected}, got {completed.returncode}; "
+                    f"stdout={completed.stdout!r}; stderr={completed.stderr!r}")
+            if completed.stdout.strip() and expected == 0:
                 print(completed.stdout.strip())
 
         execute(["tests/pilot.py"])
@@ -115,6 +121,16 @@ def main():
         if (order_record["random_exact_certificates"] != 20 or
                 len(order_record["retained_cases"]) != 4):
             raise RuntimeError("unexpected retained order-certificate count")
+        dependency_record = order_record["dependency"]
+        if (dependency_record["join_tree_global_cells"] != 8 or
+                dependency_record["retained_certificate_cells"] != 8 or
+                not dependency_record["generated_certificate_replayed"] or
+                not dependency_record["retained_certificate_replayed"] or
+                not dependency_record["retained_matches_generated"] or
+                not dependency_record["single_cell_mutation_rejected"] or
+                not dependency_record["mutation_used_isolated_copy"] or
+                not dependency_record["retained_input_preserved"]):
+            raise RuntimeError("unexpected join-tree replay gate result")
         poset_record = json.loads(
             (run_root / "results" / "poset-sweep.json").read_text(encoding="utf-8"))
         if (poset_record["posets"] != 6 or
@@ -163,12 +179,27 @@ def main():
                 encoding="utf-8"))
         if (independent_record["tasks"] != 50 or
                 independent_record["target_generators"] != 99 or
-                independent_record["strict_interior_minimizer_targets"] != 31 or
+                independent_record["listed_interior_candidate_targets"] != 31 or
+                independent_record["interior_optimum_exists_targets"] != 58 or
+                independent_record["interior_required_targets"] != 11 or
+                independent_record[
+                    "endpoint_also_optimal_among_listed_interior_targets"] != 20 or
+                independent_record["both_endpoints_optimal_targets"] != 31 or
                 independent_record["pure_test_strict_gap_targets"] != 9 or
                 independent_record["mixed_test_duality_mismatches"] != 0 or
                 independent_record["largest_pure_test_gap"] != "1/4" or
                 independent_record["mismatches"] != 0):
             raise RuntimeError("unexpected independent contract-oracle result")
+        regressions = independent_record["classification_regressions"]
+        if (regressions["seed_813"]["minimizer_interval"] != ["0", "1/4"] or
+                regressions["seed_813"]["endpoint_values"] != ["0", "2/3"] or
+                not regressions["seed_813"]["interior_optimum_exists"] or
+                regressions["seed_813"]["interior_required"] or
+                regressions["constant_objective"]["minimizer_interval"] != ["0", "1"] or
+                regressions["constant_objective"]["endpoint_values"] != ["0", "0"] or
+                not regressions["constant_objective"]["interior_optimum_exists"] or
+                regressions["constant_objective"]["interior_required"]):
+            raise RuntimeError("interior-mixture classification regression")
         mutation_record = json.loads(
             (run_root / "results" / "certificate-mutation.json").read_text(
                 encoding="utf-8"))
@@ -194,7 +225,8 @@ def main():
             raise RuntimeError("unexpected scaling-profile result")
         validation_record = json.loads(
             (run_root / "results" / "input-validation.json").read_text(encoding="utf-8"))
-        if (validation_record["cases_checked"] != 12 or
+        if (validation_record["cases_checked"] != 14 or
+                validation_record["expected_rejections"] != 12 or
                 validation_record["unexpected_acceptances"] != 0):
             raise RuntimeError("unexpected input-validation result")
 
@@ -221,9 +253,26 @@ def main():
 
         execute(["src/join_tree.py", "inputs/join-tree.json", str(cert)])
         execute(["src/join_tree.py", "inputs/join-tree.json", str(cert), "--verify"])
-        if json.loads(cert.read_text()) != json.loads(
-                (run_root / "results" / "dependency.certificate.json").read_text()):
+        generated_join = json.loads(cert.read_text())
+        canonical_join = json.loads(
+            (run_root / "results" / "dependency.certificate.json").read_text())
+        retained_join_path = run_root / "results" / "join-tree.certificate.json"
+        retained_join = json.loads(retained_join_path.read_text())
+        if generated_join != canonical_join:
             raise RuntimeError("join-tree command-line producer differs")
+        execute(["src/join_tree.py", "inputs/join-tree.json",
+                 "results/join-tree.certificate.json", "--verify"])
+        if retained_join != generated_join:
+            raise RuntimeError("retained join-tree certificate differs from generation")
+        mutated_join = json.loads(json.dumps(retained_join))
+        first_cell = next(iter(mutated_join["law"]))
+        mutated_join["law"][first_cell] = (
+            "1/4" if mutated_join["law"][first_cell] != "1/4" else "1/3")
+        mutated_path = command_dir / "join-tree-single-cell-mutated.json"
+        mutated_path.write_text(json.dumps(mutated_join, indent=2) + "\n",
+                                encoding="utf-8")
+        execute(["src/join_tree.py", "inputs/join-tree.json", str(mutated_path),
+                 "--verify"], expected=1)
 
         after = snapshot(run_root)
 
@@ -240,7 +289,11 @@ def main():
         "scientific_files_compared": len(before),
         "scientific_mismatches": 0,
         "contextual_certificates_replayed": 456,
-        "dependency_certificates_replayed": 1,
+        "dependency_certificate_objects": 1,
+        "dependency_generated_certificate_replays": 1,
+        "dependency_retained_certificate_replays": 1,
+        "dependency_retained_matches_generated": True,
+        "dependency_single_cell_mutations_rejected": 1,
         "multi_poset_pairs": poset_record["ordered_pairs"],
         "multi_poset_triangle_triples": poset_record["triangle_triples"],
         "exhaustive_labeled_posets": all_posets_record["total_labeled_posets"],
@@ -255,12 +308,17 @@ def main():
         "exhaustive_reward_contexts": context_record["reward_contexts_enumerated"],
         "independent_contract_oracle_tasks": independent_record["tasks"],
         "independent_contract_oracle_targets": independent_record["target_generators"],
-        "independent_contract_oracle_strict_interior_targets": independent_record["strict_interior_minimizer_targets"],
+        "independent_contract_oracle_listed_interior_candidates": independent_record["listed_interior_candidate_targets"],
+        "independent_contract_oracle_interior_optimum_exists": independent_record["interior_optimum_exists_targets"],
+        "independent_contract_oracle_interior_required": independent_record["interior_required_targets"],
+        "independent_contract_oracle_endpoint_also_optimal_among_listed": independent_record["endpoint_also_optimal_among_listed_interior_targets"],
+        "independent_contract_oracle_both_endpoints_optimal": independent_record["both_endpoints_optimal_targets"],
         "independent_contract_oracle_strict_pure_test_gaps": independent_record["pure_test_strict_gap_targets"],
         "certificate_mutations_rejected": mutation_record["mutations_rejected"],
         "metamorphic_transformed_tasks": metamorphic_record["transformed_tasks_checked"],
         "structural_scaling_cases": scaling_record["cases_checked"],
         "input_validation_cases": validation_record["cases_checked"],
+        "input_validation_expected_rejections": validation_record["expected_rejections"],
         "one_worker": True,
         "isolated_temporary_worktree": True,
         "wall_seconds": time.perf_counter() - start,

@@ -69,12 +69,20 @@ declared tiny universe and does not replace the paper's general proof.
 
 ## Pure-versus-mixed test game cross-check
 
-The two-generator independent oracle also enumerates pure boundary-indexed
-upward tests and solves their two-payoff mixed game exactly. Across 50 tasks
-and 99 target laws, all mixed values equal the independently computed primal
-minima. Nine targets have a strict pure-test gap (largest `1/4`), and 31
-targets require a strict-interior old mixture. This is finite evidence only;
-the general equality uses the written minimax proof.
+The two-generator oracle independently implements upward-set enumeration,
+piecewise-affine expected-value minimization, and the two-payoff mixed game.
+Its differential driver then imports and calls the SciPy-backed production
+certificate generator and the exact replay checker.  Across 50 tasks and 99
+target laws, all mixed values equal the independently computed primal minima.
+Nine targets have a strict pure-test gap (largest `1/4`).  Exactly 11 targets
+*require* an interior old mixture, meaning both endpoint objective values are
+strictly above the minimum.  An interior optimum exists for 58 targets when
+flat intervals touching an endpoint are included; 31 breakpoint lists name an
+interior minimizer explicitly, and 20 of those also have an optimal endpoint.
+Seed 813 and a constant objective are retained classification regressions.
+This is finite evidence only; the general equality uses the written minimax
+proof, and the differential command requires SciPy even though the independent
+expectation calculation itself uses exact standard-library arithmetic.
 
 ## Exhaustive labeled-poset oracle
 

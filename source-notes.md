@@ -186,9 +186,12 @@ are retained in the paper package; no fonts are included. The scientific
 artifact is independent of TeX.
 
 `src/order_run.py` uses SciPy's `linprog` only to locate a candidate. The
-independent order replay checker imports neither SciPy nor the producer and
-checks every rational equation. Python and SciPy are software dependencies,
-not scholarly baselines.
+order replay checker imports neither SciPy nor the producer and checks every
+rational equation.  The expectation/minimax mathematics inside
+`tests/independent_contract_oracle.py` is independently implemented with exact
+fractions, but that script's differential driver imports and calls both the
+SciPy-backed producer and the replay checker. Python and SciPy are software
+dependencies, not scholarly baselines.
 
 ## AI-use and review boundary
 

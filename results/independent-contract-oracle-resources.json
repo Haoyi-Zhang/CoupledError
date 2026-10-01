@@ -4,12 +4,16 @@
   "result": {
     "tasks": 50,
     "target_generators": 99,
-    "strict_interior_minimizer_targets": 31,
+    "listed_interior_candidate_targets": 31,
+    "interior_optimum_exists_targets": 58,
+    "interior_required_targets": 11,
+    "endpoint_also_optimal_among_listed_interior_targets": 20,
+    "both_endpoints_optimal_targets": 31,
     "pure_test_strict_gap_targets": 9,
     "mixed_test_duality_mismatches": 0,
     "mismatches": 0
   },
-  "cpu_seconds": 0.33291984100000005,
-  "wall_seconds": 0.33446575499999653,
-  "peak_rss_kib": 122276
+  "cpu_seconds": 0.5367879039999999,
+  "wall_seconds": 0.5389146450000339,
+  "peak_rss_kib": 122408
 }

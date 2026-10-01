@@ -44,6 +44,13 @@
     },
     "dependency": {
       "join_tree_global_cells": 8,
+      "generated_certificate_replayed": true,
+      "retained_certificate_replayed": true,
+      "retained_certificate_cells": 8,
+      "retained_matches_generated": true,
+      "single_cell_mutation_rejected": true,
+      "mutation_used_isolated_copy": true,
+      "retained_input_preserved": true,
       "negative_inputs_rejected": [
         "join-cycle-negative.json",
         "join-separator-negative.json"
@@ -51,8 +58,8 @@
     },
     "scope": "finite exact validation; written proofs establish the general finite theorems"
   },
-  "wall_seconds": 0.22330446500018297,
-  "cpu_seconds": 0.223975661,
-  "peak_rss_kib": 122280,
+  "wall_seconds": 0.15454574900002171,
+  "cpu_seconds": 0.15452714700000003,
+  "peak_rss_kib": 122152,
   "one_worker": true
 }

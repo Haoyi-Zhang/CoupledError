@@ -71,7 +71,7 @@ def replay(task, cert):
     claimed = rat(cert["value"])
     require(claimed == max(values), "global maximum mismatch")
     idx = cert["worst_generator"]
-    require(isinstance(idx, int) and 0 <= idx < len(new) and values[idx] == claimed,
+    require(type(idx) is int and 0 <= idx < len(new) and values[idx] == claimed,
             "invalid worst generator")
     witness = cert["witness"]
     require(isinstance(witness, dict) and set(witness) == {"frame", "monitor", "new_floor", "old_floor"},

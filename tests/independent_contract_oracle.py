@@ -1,9 +1,12 @@
-"""Independent exact oracle for two-generator finite order contracts.
+"""Exact differential oracle for two-generator finite order contracts.
 
-The oracle below deliberately reimplements poset upward-set enumeration and
-one-dimensional convex minimization without importing order_common.py.  It
-compares its exact Fraction results with the production certificate path and
-exact replay checker.  This is a finite cross-check, not a general proof.
+The expected-value mathematics below independently reimplements upward-set
+enumeration, one-dimensional convex minimization, and the two-action minimax
+dual without importing production order helpers.  The executable differential
+driver in ``main`` then imports and calls the production certificate generator
+and replay checker.  Consequently that full driver requires SciPy through the
+producer even though the oracle calculation itself uses only exact Fraction
+arithmetic.  This is a finite cross-check, not a general proof.
 """
 import itertools
 import json
@@ -17,8 +20,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from order_run import certificate  # candidate producer under test
-from order_verify import replay    # exact certificate replay under test
 
 
 def upward_sets_independent(leq):
@@ -70,7 +71,26 @@ def target_value_two_generators(old, target, leq):
     values = {lam: objective(lam) for lam in candidates}
     optimum = min(values.values())
     minimizers = tuple(sorted(lam for lam, value in values.items() if value == optimum))
-    return optimum, minimizers, len(candidates)
+    # The minimizer set of a convex piecewise-affine function is an interval.
+    # Candidate points contain every breakpoint and both endpoints, so the
+    # first and last minimizing candidates are the exact interval endpoints.
+    minimizer_interval = (minimizers[0], minimizers[-1])
+    endpoint_values = (values[F(0)], values[F(1)])
+    interior_optimum_exists = (minimizer_interval[0] < F(1) and
+                               minimizer_interval[1] > F(0))
+    # "Required" is deliberately stronger than "an interior optimum exists":
+    # both supplied endpoints must be strictly worse than the optimum.
+    interior_required = (endpoint_values[0] > optimum and
+                         endpoint_values[1] > optimum)
+    return {
+        "value": optimum,
+        "listed_minimizers": minimizers,
+        "minimizer_interval": minimizer_interval,
+        "endpoint_values": endpoint_values,
+        "interior_optimum_exists": interior_optimum_exists,
+        "interior_required": interior_required,
+        "breakpoint_candidates": len(candidates),
+    }
 
 
 
@@ -138,11 +158,9 @@ def oracle_contract_value(task):
     leq = tuple(tuple(bool(value) for value in row) for row in task["poset"]["leq"])
     old = tuple(parse_mass(g) for g in task["old"]["generators"])
     targets = tuple(parse_mass(g) for g in task["new"]["generators"])
-    target_records = []
-    for target in targets:
-        value, minimizers, candidate_count = target_value_two_generators(old, target, leq)
-        target_records.append((value, minimizers, candidate_count))
-    return max(value for value, _, _ in target_records), tuple(target_records)
+    target_records = tuple(target_value_two_generators(old, target, leq)
+                           for target in targets)
+    return max(record["value"] for record in target_records), target_records
 
 
 def poset(name):
@@ -220,6 +238,45 @@ def explicit_relational_task():
     }
 
 
+def constant_objective_regression():
+    """A flat objective whose candidate list contains only the two endpoints."""
+    leq = ((True, True), (False, True))
+    law = ((F(1), F(0)),)
+    record = target_value_two_generators((law, law), law, leq)
+    return record
+
+
+def assert_classification_regressions(cases):
+    seed_task = dict(cases)["seed-813"]
+    _, seed_targets = oracle_contract_value(seed_task)
+    seed = seed_targets[0]
+    if not (seed["minimizer_interval"] == (F(0), F(1, 4)) and
+            seed["endpoint_values"] == (F(0), F(2, 3)) and
+            seed["interior_optimum_exists"] and not seed["interior_required"]):
+        raise RuntimeError("seed-813 interior classification regression")
+
+    flat = constant_objective_regression()
+    if not (flat["value"] == 0 and
+            flat["minimizer_interval"] == (F(0), F(1)) and
+            flat["endpoint_values"] == (F(0), F(0)) and
+            flat["interior_optimum_exists"] and not flat["interior_required"]):
+        raise RuntimeError("constant-objective interior classification regression")
+    return {
+        "seed_813": {
+            "minimizer_interval": [str(x) for x in seed["minimizer_interval"]],
+            "endpoint_values": [str(x) for x in seed["endpoint_values"]],
+            "interior_optimum_exists": seed["interior_optimum_exists"],
+            "interior_required": seed["interior_required"],
+        },
+        "constant_objective": {
+            "minimizer_interval": [str(x) for x in flat["minimizer_interval"]],
+            "endpoint_values": [str(x) for x in flat["endpoint_values"]],
+            "interior_optimum_exists": flat["interior_optimum_exists"],
+            "interior_required": flat["interior_required"],
+        },
+    }
+
+
 def main():
     if hasattr(os, "sched_getaffinity"):
         os.sched_setaffinity(0, {min(os.sched_getaffinity(0))})
@@ -228,14 +285,24 @@ def main():
     start_cpu = time.process_time()
     start_wall = time.perf_counter()
 
+    # The differential part imports production code only here. order_run imports
+    # SciPy; the exact expectation/minimax routines above do not.
+    from order_run import certificate  # candidate producer under test
+    from order_verify import replay    # exact certificate replay under test
+
     cases = [
         ("explicit-interior", explicit_interior_task()),
         ("explicit-relational", explicit_relational_task()),
     ]
     cases.extend((f"seed-{seed}", random_task(seed)) for seed in range(811, 859))
+    classification_regressions = assert_classification_regressions(cases)
     records = []
     target_count = 0
-    strict_interior_targets = 0
+    listed_interior_candidate_targets = 0
+    interior_optimum_exists_targets = 0
+    interior_required_targets = 0
+    endpoint_also_optimal_among_listed_interior_targets = 0
+    both_endpoints_optimal_targets = 0
     pure_test_strict_gap_targets = 0
     mixed_test_duality_mismatches = []
     largest_pure_test_gap = F(0)
@@ -245,7 +312,7 @@ def main():
         cert = certificate(task)
         accepted = replay(task, cert)
         produced_targets = tuple(F(proof["value"]) for proof in cert["proofs"])
-        expected_targets = tuple(value for value, _, _ in targets)
+        expected_targets = tuple(record["value"] for record in targets)
         leq = tuple(tuple(bool(value) for value in row) for row in task["poset"]["leq"])
         old = tuple(parse_mass(g) for g in task["old"]["generators"])
         target_masses = tuple(parse_mass(g) for g in task["new"]["generators"])
@@ -283,9 +350,20 @@ def main():
                 "oracle_targets": [str(value) for value in expected_targets],
                 "certificate_targets": [str(value) for value in produced_targets],
             })
-        interior = sum(any(F(0) < lam < F(1) for lam in minimizers)
-                       for _, minimizers, _ in targets)
-        strict_interior_targets += interior
+        for target_record in targets:
+            listed = any(F(0) < lam < F(1)
+                         for lam in target_record["listed_minimizers"])
+            endpoint_optimal = any(value == target_record["value"]
+                                   for value in target_record["endpoint_values"])
+            listed_interior_candidate_targets += int(listed)
+            interior_optimum_exists_targets += int(
+                target_record["interior_optimum_exists"])
+            interior_required_targets += int(target_record["interior_required"])
+            endpoint_also_optimal_among_listed_interior_targets += int(
+                listed and endpoint_optimal)
+            both_endpoints_optimal_targets += int(
+                all(value == target_record["value"]
+                    for value in target_record["endpoint_values"]))
         target_count += len(targets)
         records.append({
             "case": name,
@@ -293,9 +371,19 @@ def main():
             "boundary_rows": len(task["boundary"]),
             "targets": len(targets),
             "value": str(expected),
-            "target_values": [str(value) for value, _, _ in targets],
-            "minimizers": [[str(lam) for lam in minimizers] for _, minimizers, _ in targets],
-            "breakpoint_candidates": [count for _, _, count in targets],
+            "target_values": [str(record["value"]) for record in targets],
+            "listed_minimizers": [[str(lam) for lam in record["listed_minimizers"]]
+                                  for record in targets],
+            "minimizer_intervals": [[str(x) for x in record["minimizer_interval"]]
+                                    for record in targets],
+            "endpoint_values": [[str(x) for x in record["endpoint_values"]]
+                                for record in targets],
+            "interior_optimum_exists": [record["interior_optimum_exists"]
+                                        for record in targets],
+            "interior_required": [record["interior_required"]
+                                  for record in targets],
+            "breakpoint_candidates": [record["breakpoint_candidates"]
+                                      for record in targets],
             "test_game": game_records,
         })
     if mismatches:
@@ -303,21 +391,28 @@ def main():
     if mixed_test_duality_mismatches:
         raise RuntimeError("mixed-test minimax mismatch: " +
                            json.dumps(mixed_test_duality_mismatches[:3]))
-    if strict_interior_targets == 0:
-        raise RuntimeError("campaign did not exercise an interior old mixture")
+    if interior_required_targets == 0:
+        raise RuntimeError("campaign did not exercise a required interior old mixture")
     if pure_test_strict_gap_targets == 0:
         raise RuntimeError("campaign did not exercise a strict pure-test gap")
 
     result = {
-        "method": ("independent exact piecewise-affine primal minimization and "
-                   "two-payoff-dimensional mixed-test game dual for two-generator old contracts"),
+        "method": ("mathematically independent exact piecewise-affine primal minimization "
+                   "and two-payoff-dimensional mixed-test dual, differentially compared "
+                   "with the SciPy-backed producer and exact replay checker"),
         "tasks": len(cases),
         "target_generators": target_count,
-        "strict_interior_minimizer_targets": strict_interior_targets,
+        "listed_interior_candidate_targets": listed_interior_candidate_targets,
+        "interior_optimum_exists_targets": interior_optimum_exists_targets,
+        "interior_required_targets": interior_required_targets,
+        "endpoint_also_optimal_among_listed_interior_targets":
+            endpoint_also_optimal_among_listed_interior_targets,
+        "both_endpoints_optimal_targets": both_endpoints_optimal_targets,
         "pure_test_strict_gap_targets": pure_test_strict_gap_targets,
         "mixed_test_duality_mismatches": 0,
         "largest_pure_test_gap": str(largest_pure_test_gap),
         "mismatches": 0,
+        "classification_regressions": classification_regressions,
         "cases": records,
         "scope": "finite cross-check; not a proof of the general contract theorem",
     }
@@ -327,8 +422,11 @@ def main():
         "stage": "independent-contract-oracle",
         "workers": 1,
         "result": {key: result[key] for key in (
-            "tasks", "target_generators", "strict_interior_minimizer_targets",
-            "pure_test_strict_gap_targets", "mixed_test_duality_mismatches", "mismatches")},
+            "tasks", "target_generators", "listed_interior_candidate_targets",
+            "interior_optimum_exists_targets", "interior_required_targets",
+            "endpoint_also_optimal_among_listed_interior_targets",
+            "both_endpoints_optimal_targets", "pure_test_strict_gap_targets",
+            "mixed_test_duality_mismatches", "mismatches")},
         "cpu_seconds": time.process_time() - start_cpu,
         "wall_seconds": time.perf_counter() - start_wall,
         "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,

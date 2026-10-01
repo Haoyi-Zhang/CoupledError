@@ -17,15 +17,16 @@ class InputError(ValueError):
 
 def rat(value):
     if type(value) is int:
-        return F(value)
-    if not isinstance(value, str) or not value or len(value) > 160:
-        raise InputError("rational must be an integer or short string")
-    if any(ch not in "-0123456789/" for ch in value):
-        raise InputError("invalid rational syntax")
-    try:
         out = F(value)
-    except (ValueError, ZeroDivisionError) as exc:
-        raise InputError("invalid rational") from exc
+    else:
+        if not isinstance(value, str) or not value or len(value) > 160:
+            raise InputError("rational must be an integer or short string")
+        if any(ch not in "-0123456789/" for ch in value):
+            raise InputError("invalid rational syntax")
+        try:
+            out = F(value)
+        except (ValueError, ZeroDivisionError) as exc:
+            raise InputError("invalid rational") from exc
     if out.numerator.bit_length() > 256 or out.denominator.bit_length() > 256:
         raise InputError("rational bit limit exceeded")
     return out

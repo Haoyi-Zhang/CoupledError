@@ -1,12 +1,42 @@
 {
-  "method": "independent exact piecewise-affine primal minimization and two-payoff-dimensional mixed-test game dual for two-generator old contracts",
+  "method": "mathematically independent exact piecewise-affine primal minimization and two-payoff-dimensional mixed-test dual, differentially compared with the SciPy-backed producer and exact replay checker",
   "tasks": 50,
   "target_generators": 99,
-  "strict_interior_minimizer_targets": 31,
+  "listed_interior_candidate_targets": 31,
+  "interior_optimum_exists_targets": 58,
+  "interior_required_targets": 11,
+  "endpoint_also_optimal_among_listed_interior_targets": 20,
+  "both_endpoints_optimal_targets": 31,
   "pure_test_strict_gap_targets": 9,
   "mixed_test_duality_mismatches": 0,
   "largest_pure_test_gap": "1/4",
   "mismatches": 0,
+  "classification_regressions": {
+    "seed_813": {
+      "minimizer_interval": [
+        "0",
+        "1/4"
+      ],
+      "endpoint_values": [
+        "0",
+        "2/3"
+      ],
+      "interior_optimum_exists": true,
+      "interior_required": false
+    },
+    "constant_objective": {
+      "minimizer_interval": [
+        "0",
+        "1"
+      ],
+      "endpoint_values": [
+        "0",
+        "0"
+      ],
+      "interior_optimum_exists": true,
+      "interior_required": false
+    }
+  },
   "cases": [
     {
       "case": "explicit-interior",
@@ -18,7 +48,7 @@
         "0",
         "1/4"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1/2"
         ],
@@ -26,6 +56,34 @@
           "1/4",
           "3/4"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/4",
+          "3/4"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/4",
+          "1/4"
+        ],
+        [
+          "3/8",
+          "3/8"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        true,
+        true
       ],
       "breakpoint_candidates": [
         3,
@@ -59,10 +117,28 @@
       "target_values": [
         "1/4"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1/2"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        true
       ],
       "breakpoint_candidates": [
         4
@@ -98,7 +174,7 @@
         "2/3",
         "1/6"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
@@ -106,6 +182,34 @@
         [
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "2/3"
+        ],
+        [
+          "1/3",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -141,7 +245,7 @@
         "1/6",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1/3"
         ],
@@ -151,6 +255,44 @@
         [
           "0"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/3",
+          "1/3"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "5/6"
+        ],
+        [
+          "1/6",
+          "2/3"
+        ],
+        [
+          "0",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false,
+        false
+      ],
+      "interior_required": [
+        true,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         4,
@@ -203,11 +345,29 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1/4"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1/4"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         4
@@ -233,7 +393,7 @@
         "0",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1/2"
@@ -242,6 +402,34 @@
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/6"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         3,
@@ -277,7 +465,7 @@
         "1/9",
         "1/6"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1/2",
           "2/3",
@@ -293,6 +481,44 @@
           "3/4",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ],
+        [
+          "1/2",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/3",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/2"
+        ],
+        [
+          "1/3",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        true,
+        false
       ],
       "breakpoint_candidates": [
         5,
@@ -345,11 +571,29 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2
@@ -375,7 +619,7 @@
         "0",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
@@ -383,6 +627,34 @@
         [
           "0"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -418,7 +690,7 @@
         "0",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0"
         ],
@@ -429,6 +701,44 @@
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/3",
+          "1/2"
+        ],
+        [
+          "0",
+          "1/3"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -471,10 +781,28 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2
@@ -500,7 +828,7 @@
         "0",
         "1/3"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
@@ -508,6 +836,34 @@
         [
           "0"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/3",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -543,7 +899,7 @@
         "0",
         "1/3"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1"
         ],
@@ -553,6 +909,44 @@
         [
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/3",
+          "1/6"
+        ],
+        [
+          "0",
+          "1/6"
+        ],
+        [
+          "1/2",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -595,11 +989,29 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1/3"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         3
@@ -625,13 +1037,41 @@
         "0",
         "1/6"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0"
         ],
         [
           "0"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -667,7 +1107,7 @@
         "0",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1/2",
@@ -681,6 +1121,44 @@
         [
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1/2",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/6",
+          "0"
+        ],
+        [
+          "1/3",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         4,
@@ -723,10 +1201,28 @@
       "target_values": [
         "1/12"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1/2"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        true
       ],
       "breakpoint_candidates": [
         3
@@ -762,7 +1258,7 @@
         "0",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
@@ -771,6 +1267,34 @@
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -806,7 +1330,7 @@
         "1/18",
         "1/18"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0"
         ],
@@ -816,6 +1340,44 @@
         [
           "1/3"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "1/2"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        true,
+        true
       ],
       "breakpoint_candidates": [
         3,
@@ -878,11 +1440,29 @@
       "target_values": [
         "2/3"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2
@@ -908,13 +1488,41 @@
         "1/6",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1"
         ],
         [
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/3",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -950,7 +1558,7 @@
         "2/3",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0"
         ],
@@ -960,6 +1568,44 @@
         [
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "2/3"
+        ],
+        [
+          "2/3",
+          "5/6"
+        ],
+        [
+          "1/2",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         4,
@@ -1002,11 +1648,29 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2
@@ -1032,7 +1696,7 @@
         "0",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "2/3",
           "1"
@@ -1041,6 +1705,34 @@
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "2/3",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/3",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         3,
@@ -1076,7 +1768,7 @@
         "1/2",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1"
         ],
@@ -1087,6 +1779,44 @@
           "1/2",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1/2",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/6"
+        ],
+        [
+          "5/6",
+          "1/2"
+        ],
+        [
+          "1/6",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -1129,11 +1859,29 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2
@@ -1159,7 +1907,7 @@
         "0",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
@@ -1167,6 +1915,34 @@
         [
           "0"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -1202,7 +1978,7 @@
         "1/6",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
@@ -1215,6 +1991,44 @@
           "1/3",
           "1/2"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/6",
+          "1/2"
+        ],
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -1257,10 +2071,28 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2
@@ -1286,7 +2118,7 @@
         "1/3",
         "1/3"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1/2",
           "1"
@@ -1295,6 +2127,34 @@
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/3"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         3,
@@ -1330,7 +2190,7 @@
         "1/2",
         "1/3"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1/2"
         ],
@@ -1340,6 +2200,44 @@
         [
           "0"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "2/3"
+        ],
+        [
+          "1/3",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false,
+        false
+      ],
+      "interior_required": [
+        true,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         4,
@@ -1392,10 +2290,28 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2
@@ -1421,7 +2337,7 @@
         "1/6",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0"
         ],
@@ -1429,6 +2345,34 @@
           "0",
           "1/2"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "1/3"
+        ],
+        [
+          "0",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -1464,7 +2408,7 @@
         "1/6",
         "2/3"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
@@ -1477,6 +2421,44 @@
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "2/3"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ],
+        [
+          "2/3",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -1519,11 +2501,29 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "3/4",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "3/4",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         3
@@ -1549,7 +2549,7 @@
         "0",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
@@ -1557,6 +2557,34 @@
         [
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/6",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -1592,7 +2620,7 @@
         "1/3",
         "1/3"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0"
         ],
@@ -1602,6 +2630,44 @@
         [
           "0"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "1/3"
+        ],
+        [
+          "1/3",
+          "2/3"
+        ],
+        [
+          "1/3",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         4,
@@ -1644,11 +2710,29 @@
       "target_values": [
         "1/2"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2
@@ -1674,13 +2758,41 @@
         "1/6",
         "1/18"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1"
         ],
         [
           "1/3"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        true
       ],
       "breakpoint_candidates": [
         3,
@@ -1726,7 +2838,7 @@
         "0",
         "1/6"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1/3",
@@ -1743,6 +2855,44 @@
           "2/3",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "2/3",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         4,
@@ -1785,11 +2935,29 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1/2"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         3
@@ -1815,7 +2983,7 @@
         "0",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
@@ -1824,6 +2992,34 @@
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -1859,7 +3055,7 @@
         "1/6",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1"
         ],
@@ -1869,6 +3065,44 @@
         [
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "1/6"
+        ],
+        [
+          "2/3",
+          "1/6"
+        ],
+        [
+          "2/3",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         4,
@@ -1911,11 +3145,29 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2
@@ -1941,13 +3193,41 @@
         "1/6",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1"
         ],
         [
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/6"
+        ],
+        [
+          "1/3",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -1983,7 +3263,7 @@
         "0",
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1/3"
@@ -1995,6 +3275,44 @@
           "0",
           "1/3"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1/3"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/3"
+        ],
+        [
+          "0",
+          "1/3"
+        ],
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
       ],
       "breakpoint_candidates": [
         4,
@@ -2037,11 +3355,29 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2
@@ -2067,7 +3403,7 @@
         "0",
         "1/2"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
@@ -2076,6 +3412,34 @@
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
       ],
       "breakpoint_candidates": [
         2,
@@ -2111,7 +3475,7 @@
         "1/6",
         "1/12"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "1"
         ],
@@ -2123,6 +3487,44 @@
         [
           "1/2"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        true
       ],
       "breakpoint_candidates": [
         3,
@@ -2175,11 +3577,29 @@
       "target_values": [
         "0"
       ],
-      "minimizers": [
+      "listed_minimizers": [
         [
           "0",
           "1"
         ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
       ],
       "breakpoint_candidates": [
         2

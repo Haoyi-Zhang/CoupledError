@@ -31,7 +31,19 @@
       "diagnostic_present": true
     },
     {
+      "case": "order-257-bit-json-integer-rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
       "case": "order-nontransitive-rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "order-boolean-worst-generator-rejected",
       "expected_exit": 1,
       "actual_exit": 1,
       "diagnostic_present": true
@@ -73,8 +85,8 @@
       "diagnostic_present": true
     }
   ],
-  "cases_checked": 12,
-  "expected_rejections": 10,
+  "cases_checked": 14,
+  "expected_rejections": 12,
   "unexpected_acceptances": 0,
   "scope": "bounded parser and CLI robustness checks"
 }
