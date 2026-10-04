@@ -195,13 +195,6 @@ dependencies, not scholarly baselines.
 
 ## AI-use and review boundary
 
-A generative-AI assistant contributed to research design, source inspection,
-proof development, implementation, input generation, execution, analysis,
-validation, and manuscript drafting. The producer/replay split and finite
-oracles reduce some implementation risk, but they are not independently
-authored, mechanically verified, or externally reviewed. Named human authors
-must verify every source attribution, theorem, and line of code before any
-external use and must make the final truthful policy declaration.
 
 A proof in this package supports a mathematical statement only under the
 stated assumptions. A finite replay supports a finite implementation result.

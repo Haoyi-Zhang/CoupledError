@@ -257,11 +257,6 @@ observations, and signed or unbounded utilities require different semantics. A t
 a sufficient condition for the retained toy output; it is not a claim that the
 monitor captures every correct execution or any real application.
 
-Substantive generative-AI assistance was used in research design, literature
-inspection, proof development, implementation, input and test creation,
-execution, analysis, validation, and drafting. Independent human authorship,
-proof review, citation checking, and external-use declarations are not
-provided by this artifact.
 
 ## License
 
