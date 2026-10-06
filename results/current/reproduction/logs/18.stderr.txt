@@ -1,0 +1,9 @@
+test_invalid_alternative_dual_rejected (test_reproduction_comparison.CertificateComparisonTests.test_invalid_alternative_dual_rejected) ... ok
+test_missing_record_rejected (test_reproduction_comparison.CertificateComparisonTests.test_missing_record_rejected) ... ok
+test_seed_drift_rejected (test_reproduction_comparison.CertificateComparisonTests.test_seed_drift_rejected) ... ok
+test_valid_alternative_dual (test_reproduction_comparison.CertificateComparisonTests.test_valid_alternative_dual) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.058s
+
+OK

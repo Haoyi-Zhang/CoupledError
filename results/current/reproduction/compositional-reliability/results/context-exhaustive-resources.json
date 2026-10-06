@@ -1,0 +1,15 @@
+{
+  "stage": "context-exhaustive",
+  "workers": 1,
+  "result": {
+    "point_laws": 4,
+    "nonempty_finite_contracts": 15,
+    "contract_pairs": 225,
+    "boolean_contexts_enumerated": 36,
+    "reward_contexts_enumerated": 144,
+    "mismatches": 0
+  },
+  "cpu_seconds": 0.023971478000000004,
+  "wall_seconds": 0.024221255000000497,
+  "peak_rss_kib": 20696
+}

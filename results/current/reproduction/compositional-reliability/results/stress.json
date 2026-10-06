@@ -1,0 +1,102 @@
+[
+  {
+    "case": 0,
+    "dual_systems": 366,
+    "loss": "3/64"
+  },
+  {
+    "case": 1,
+    "dual_systems": 1628,
+    "loss": "1/4"
+  },
+  {
+    "case": 2,
+    "dual_systems": 625,
+    "loss": "1/8"
+  },
+  {
+    "case": 3,
+    "dual_systems": 1571,
+    "loss": "7/48"
+  },
+  {
+    "case": 4,
+    "dual_systems": 2542,
+    "loss": "5/16"
+  },
+  {
+    "case": 5,
+    "dual_systems": 543,
+    "loss": "3/16"
+  },
+  {
+    "case": 6,
+    "dual_systems": 674,
+    "loss": "1/16"
+  },
+  {
+    "case": 7,
+    "dual_systems": 5,
+    "loss": "0"
+  },
+  {
+    "case": 8,
+    "dual_systems": 22,
+    "loss": "1/6"
+  },
+  {
+    "case": 9,
+    "dual_systems": 8,
+    "loss": "0"
+  },
+  {
+    "case": 10,
+    "dual_systems": 151,
+    "loss": "2/9"
+  },
+  {
+    "case": 11,
+    "dual_systems": 255,
+    "loss": "5/16"
+  },
+  {
+    "case": 12,
+    "dual_systems": 185,
+    "loss": "3/8"
+  },
+  {
+    "case": 13,
+    "dual_systems": 2216,
+    "loss": "1/8"
+  },
+  {
+    "case": 14,
+    "dual_systems": 72,
+    "loss": "1/12"
+  },
+  {
+    "case": 15,
+    "dual_systems": 176,
+    "loss": "21/64"
+  },
+  {
+    "case": 16,
+    "dual_systems": 152,
+    "loss": "7/48"
+  },
+  {
+    "case": 17,
+    "dual_systems": 262,
+    "loss": "1/4"
+  },
+  {
+    "case": 18,
+    "dual_systems": 65,
+    "loss": "1/4"
+  },
+  {
+    "case": 19,
+    "dual_systems": 3072,
+    "loss": "1/8"
+  }
+]

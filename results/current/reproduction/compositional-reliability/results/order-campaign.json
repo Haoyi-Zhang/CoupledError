@@ -1,0 +1,59 @@
+{
+  "retained_cases": {
+    "order-binary": "1/4",
+    "order-pipeline": "1/4",
+    "order-relational": "1/4",
+    "order-convex": "1/4"
+  },
+  "random_exact_certificates": 20,
+  "random_seeds": [
+    710,
+    711,
+    712,
+    713,
+    714,
+    715,
+    716,
+    717,
+    718,
+    719,
+    720,
+    721,
+    722,
+    723,
+    724,
+    725,
+    726,
+    727,
+    728,
+    729
+  ],
+  "negative_certificates_rejected": 4,
+  "relational_witness": {
+    "direct_fixed_upset_gap": "0",
+    "correlated_frame_contextual_loss": "1/4"
+  },
+  "point_oracle": {
+    "denominator": 4,
+    "laws": 35,
+    "ordered_pairs": 1225,
+    "transport_upset_mismatches": 0,
+    "triangle_triples": 42875,
+    "triangle_violations": 0
+  },
+  "dependency": {
+    "join_tree_global_cells": 8,
+    "generated_certificate_replayed": true,
+    "retained_certificate_replayed": true,
+    "retained_certificate_cells": 8,
+    "retained_matches_generated": true,
+    "single_cell_mutation_rejected": true,
+    "mutation_used_isolated_copy": true,
+    "retained_input_preserved": true,
+    "negative_inputs_rejected": [
+      "join-cycle-negative.json",
+      "join-separator-negative.json"
+    ]
+  },
+  "scope": "finite exact validation; written proofs establish the general finite theorems"
+}

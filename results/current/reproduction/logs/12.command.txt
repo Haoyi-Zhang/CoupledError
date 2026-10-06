@@ -1,0 +1,1 @@
+python3 tests/independent_contract_oracle.py

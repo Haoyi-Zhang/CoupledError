@@ -1,0 +1,1 @@
+python3 tests/data_processing_exhaustive.py

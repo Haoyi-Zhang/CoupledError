@@ -1,0 +1,92 @@
+{
+  "cases": [
+    {
+      "case": "order-producer-duplicate-json-key",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "order-replay-duplicate-json-key",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "order-float-boolean-rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "order-boolean-rational-rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "order-long-rational-rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "order-257-bit-json-integer-rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "order-nontransitive-rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "order-boolean-worst-generator-rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "order-valid-control",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "diagnostic_present": true
+    },
+    {
+      "case": "join-tree-duplicate-json-key",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "join-tree-invalid-variable-label",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    },
+    {
+      "case": "join-tree-valid-control",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "diagnostic_present": true
+    },
+    {
+      "case": "join-tree-invalid-mode-flag",
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "diagnostic_present": true
+    },
+    {
+      "case": "join-tree-malformed-certificate-law",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "diagnostic_present": true
+    }
+  ],
+  "cases_checked": 14,
+  "expected_rejections": 12,
+  "unexpected_acceptances": 0,
+  "scope": "bounded parser and CLI robustness checks"
+}

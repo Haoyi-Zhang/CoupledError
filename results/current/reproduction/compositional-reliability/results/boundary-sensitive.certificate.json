@@ -1,0 +1,42 @@
+{
+  "kind": "contextual-loss",
+  "value": "1/2",
+  "old_to_new_prior": [
+    [
+      "1"
+    ]
+  ],
+  "new_to_old_prior": [
+    [
+      "1"
+    ]
+  ],
+  "proofs": [
+    {
+      "value": "1/2",
+      "lambda": [
+        "1"
+      ],
+      "slack": [
+        "1/2",
+        "0"
+      ],
+      "y": [
+        "1/2",
+        "0",
+        "0"
+      ],
+      "w": [
+        "1",
+        "0"
+      ],
+      "primal_systems": 1,
+      "dual_systems": 3
+    }
+  ],
+  "worst_vertex": 0,
+  "context_success": [
+    "1/2",
+    "0"
+  ]
+}

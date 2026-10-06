@@ -1,0 +1,1 @@
+{"cpu_seconds": 0.112899556, "peak_rss_kib": 20696, "result": {"certificates_replayed": 432}, "stage": "replay", "wall_seconds": 0.11239711399999663, "workers": 1}

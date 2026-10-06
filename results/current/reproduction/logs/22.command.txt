@@ -1,0 +1,1 @@
+python3 src/run.py --source inputs/pipeline-model.json <temporary-worktree>/command-line-checks/certificate.json

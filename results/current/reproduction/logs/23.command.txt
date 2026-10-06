@@ -1,0 +1,1 @@
+python3 src/verify.py <temporary-worktree>/command-line-checks/certificate.task.json <temporary-worktree>/command-line-checks/certificate.json

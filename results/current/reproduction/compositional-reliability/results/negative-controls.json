@@ -1,0 +1,70 @@
+{
+  "certificate_rejections": [
+    "wrong-total",
+    "wrong-context",
+    "missing-generator",
+    "negative-weight",
+    "invalid-prior-witness",
+    "negative-slack",
+    "dual-box",
+    "dual-objective",
+    "false-vertex-value",
+    "wrong-maximizer",
+    "numeric-instead-of-rational-string",
+    "unexpected-field"
+  ],
+  "correlation_laws": {
+    "negative": {
+      "01": "1/2",
+      "10": "1/2"
+    },
+    "positive": {
+      "00": "1/2",
+      "11": "1/2"
+    }
+  },
+  "counterexamples": {
+    "aliases": {
+      "same_event_or": "1/2",
+      "two_independent_events_or": "3/4"
+    },
+    "independent-product": {
+      "allowed_and_max": "1/2",
+      "allowed_and_min": "0",
+      "product": "1/4"
+    },
+    "leaked-boundary": {
+      "coarsened_loss": "0",
+      "full_boundary_loss": "1/2"
+    },
+    "negated-success": {
+      "monotone_loss": "0",
+      "negated_context_drop": "1",
+      "new_G": "1",
+      "old_G": "0"
+    },
+    "old-generator-only": {
+      "exact_loss": "0",
+      "incorrect_loss": "1/4"
+    },
+    "old-row-rectangularization": {
+      "rectangularized_floor": "0",
+      "true_floor_at_b_equals_p": "1/2"
+    },
+    "scalar-summary": {
+      "boundary_loss": "1/2",
+      "new_scalar": "1/2",
+      "old_scalar": "1/2"
+    }
+  },
+  "source_rejections": [
+    "crossing-constraint",
+    "private-observation",
+    "nonmonotone-success",
+    "violated-local-law",
+    "duplicate-event-name",
+    "invalid-mass",
+    "incompatible-frame-prior",
+    "changed-prior-domain"
+  ]
+}

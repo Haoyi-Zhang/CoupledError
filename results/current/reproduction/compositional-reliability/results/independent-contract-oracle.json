@@ -1,0 +1,3620 @@
+{
+  "method": "mathematically independent exact piecewise-affine primal minimization and two-payoff-dimensional mixed-test dual, differentially compared with the SciPy-backed producer and exact replay checker",
+  "tasks": 50,
+  "target_generators": 99,
+  "listed_interior_candidate_targets": 31,
+  "interior_optimum_exists_targets": 58,
+  "interior_required_targets": 11,
+  "endpoint_also_optimal_among_listed_interior_targets": 20,
+  "both_endpoints_optimal_targets": 31,
+  "pure_test_strict_gap_targets": 9,
+  "mixed_test_duality_mismatches": 0,
+  "largest_pure_test_gap": "1/4",
+  "mismatches": 0,
+  "classification_regressions": {
+    "seed_813": {
+      "minimizer_interval": [
+        "0",
+        "1/4"
+      ],
+      "endpoint_values": [
+        "0",
+        "2/3"
+      ],
+      "interior_optimum_exists": true,
+      "interior_required": false
+    },
+    "constant_objective": {
+      "minimizer_interval": [
+        "0",
+        "1"
+      ],
+      "endpoint_values": [
+        "0",
+        "0"
+      ],
+      "interior_optimum_exists": true,
+      "interior_required": false
+    }
+  },
+  "cases": [
+    {
+      "case": "explicit-interior",
+      "poset": 2,
+      "boundary_rows": 2,
+      "targets": 2,
+      "value": "1/4",
+      "target_values": [
+        "0",
+        "1/4"
+      ],
+      "listed_minimizers": [
+        [
+          "1/2"
+        ],
+        [
+          "1/4",
+          "3/4"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/4",
+          "3/4"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/4",
+          "1/4"
+        ],
+        [
+          "3/8",
+          "3/8"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        true,
+        true
+      ],
+      "breakpoint_candidates": [
+        3,
+        4
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 6,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/4",
+          "mixed_test_value": "1/4",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 9,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "explicit-relational",
+      "poset": 4,
+      "boundary_rows": 1,
+      "targets": 1,
+      "value": "1/4",
+      "target_values": [
+        "1/4"
+      ],
+      "listed_minimizers": [
+        [
+          "1/2"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        true
+      ],
+      "breakpoint_candidates": [
+        4
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "1/4",
+          "strict_gap": "1/4",
+          "pure_actions": 4,
+          "candidate_mixtures": 9,
+          "mixed_witness": {
+            "left": [
+              "0",
+              "1/2"
+            ],
+            "right": [
+              "1/2",
+              "0"
+            ],
+            "left_weight": "1/2"
+          }
+        }
+      ]
+    },
+    {
+      "case": "seed-811",
+      "poset": 3,
+      "boundary_rows": 2,
+      "targets": 2,
+      "value": "2/3",
+      "target_values": [
+        "2/3",
+        "1/6"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "2/3"
+        ],
+        [
+          "1/3",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "2/3",
+          "mixed_test_value": "2/3",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 11,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 8,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-812",
+      "poset": 4,
+      "boundary_rows": 1,
+      "targets": 3,
+      "value": "11/18",
+      "target_values": [
+        "11/18",
+        "1/6",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "1/3"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/3",
+          "1/3"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "5/6"
+        ],
+        [
+          "1/6",
+          "2/3"
+        ],
+        [
+          "0",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false,
+        false
+      ],
+      "interior_required": [
+        true,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        4,
+        4,
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/2",
+          "mixed_test_value": "11/18",
+          "strict_gap": "1/9",
+          "pure_actions": 5,
+          "candidate_mixtures": 12,
+          "mixed_witness": {
+            "left": [
+              "1/2",
+              "2/3"
+            ],
+            "right": [
+              "5/6",
+              "1/2"
+            ],
+            "left_weight": "2/3"
+          }
+        },
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 12,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 12,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-813",
+      "poset": 2,
+      "boundary_rows": 2,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1/4"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1/4"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        4
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 7,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-814",
+      "poset": 3,
+      "boundary_rows": 1,
+      "targets": 2,
+      "value": "0",
+      "target_values": [
+        "0",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/6"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        3,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 3,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-815",
+      "poset": 4,
+      "boundary_rows": 2,
+      "targets": 3,
+      "value": "1/6",
+      "target_values": [
+        "1/6",
+        "1/9",
+        "1/6"
+      ],
+      "listed_minimizers": [
+        [
+          "1/2",
+          "2/3",
+          "3/4",
+          "1"
+        ],
+        [
+          "1/3"
+        ],
+        [
+          "1/2",
+          "2/3",
+          "3/4",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ],
+        [
+          "1/2",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/3",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/2"
+        ],
+        [
+          "1/3",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        true,
+        false
+      ],
+      "breakpoint_candidates": [
+        5,
+        5,
+        5
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 16,
+          "candidate_mixtures": 95,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "1/9",
+          "strict_gap": "1/9",
+          "pure_actions": 10,
+          "candidate_mixtures": 39,
+          "mixed_witness": {
+            "left": [
+              "0",
+              "1/6"
+            ],
+            "right": [
+              "1/3",
+              "0"
+            ],
+            "left_weight": "2/3"
+          }
+        },
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 15,
+          "candidate_mixtures": 86,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-816",
+      "poset": 2,
+      "boundary_rows": 1,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 3,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-817",
+      "poset": 3,
+      "boundary_rows": 2,
+      "targets": 2,
+      "value": "0",
+      "target_values": [
+        "0",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 11,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 11,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-818",
+      "poset": 4,
+      "boundary_rows": 1,
+      "targets": 3,
+      "value": "1/3",
+      "target_values": [
+        "1/3",
+        "0",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/3",
+          "1/2"
+        ],
+        [
+          "0",
+          "1/3"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/3",
+          "mixed_test_value": "1/3",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 9,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 9,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-819",
+      "poset": 2,
+      "boundary_rows": 2,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 6,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-820",
+      "poset": 3,
+      "boundary_rows": 1,
+      "targets": 2,
+      "value": "1/3",
+      "target_values": [
+        "0",
+        "1/3"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/3",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 3,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/3",
+          "mixed_test_value": "1/3",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-821",
+      "poset": 4,
+      "boundary_rows": 2,
+      "targets": 3,
+      "value": "1/3",
+      "target_values": [
+        "1/6",
+        "0",
+        "1/3"
+      ],
+      "listed_minimizers": [
+        [
+          "1"
+        ],
+        [
+          "0"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/3",
+          "1/6"
+        ],
+        [
+          "0",
+          "1/6"
+        ],
+        [
+          "1/2",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        3,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 8,
+          "candidate_mixtures": 29,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 14,
+          "candidate_mixtures": 77,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/3",
+          "mixed_test_value": "1/3",
+          "strict_gap": "0",
+          "pure_actions": 12,
+          "candidate_mixtures": 56,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-822",
+      "poset": 2,
+      "boundary_rows": 1,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 3,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-823",
+      "poset": 3,
+      "boundary_rows": 2,
+      "targets": 2,
+      "value": "1/6",
+      "target_values": [
+        "0",
+        "1/6"
+      ],
+      "listed_minimizers": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 8,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-824",
+      "poset": 4,
+      "boundary_rows": 1,
+      "targets": 3,
+      "value": "0",
+      "target_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        [
+          "1/2",
+          "1"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1/2",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/6",
+          "0"
+        ],
+        [
+          "1/3",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        4,
+        3,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 11,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 7,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 7,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-825",
+      "poset": 2,
+      "boundary_rows": 2,
+      "targets": 1,
+      "value": "1/12",
+      "target_values": [
+        "1/12"
+      ],
+      "listed_minimizers": [
+        [
+          "1/2"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        true
+      ],
+      "breakpoint_candidates": [
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "1/12",
+          "strict_gap": "1/12",
+          "pure_actions": 4,
+          "candidate_mixtures": 9,
+          "mixed_witness": {
+            "left": [
+              "0",
+              "1/6"
+            ],
+            "right": [
+              "1/6",
+              "0"
+            ],
+            "left_weight": "1/2"
+          }
+        }
+      ]
+    },
+    {
+      "case": "seed-826",
+      "poset": 3,
+      "boundary_rows": 1,
+      "targets": 2,
+      "value": "0",
+      "target_values": [
+        "0",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-827",
+      "poset": 4,
+      "boundary_rows": 2,
+      "targets": 3,
+      "value": "1/6",
+      "target_values": [
+        "1/6",
+        "1/18",
+        "1/18"
+      ],
+      "listed_minimizers": [
+        [
+          "0"
+        ],
+        [
+          "1/3"
+        ],
+        [
+          "1/3"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "1/2"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        true,
+        true
+      ],
+      "breakpoint_candidates": [
+        3,
+        4,
+        6
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 16,
+          "candidate_mixtures": 89,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "1/18",
+          "strict_gap": "1/18",
+          "pure_actions": 11,
+          "candidate_mixtures": 47,
+          "mixed_witness": {
+            "left": [
+              "-1/6",
+              "1/6"
+            ],
+            "right": [
+              "1/6",
+              "0"
+            ],
+            "left_weight": "1/3"
+          }
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "1/18",
+          "strict_gap": "1/18",
+          "pure_actions": 19,
+          "candidate_mixtures": 129,
+          "mixed_witness": {
+            "left": [
+              "-1/6",
+              "1/6"
+            ],
+            "right": [
+              "1/6",
+              "0"
+            ],
+            "left_weight": "1/3"
+          }
+        }
+      ]
+    },
+    {
+      "case": "seed-828",
+      "poset": 2,
+      "boundary_rows": 1,
+      "targets": 1,
+      "value": "2/3",
+      "target_values": [
+        "2/3"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "2/3",
+          "mixed_test_value": "2/3",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 2,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-829",
+      "poset": 3,
+      "boundary_rows": 2,
+      "targets": 2,
+      "value": "1/6",
+      "target_values": [
+        "1/6",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "1"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/3",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 7,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 8,
+          "candidate_mixtures": 24,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-830",
+      "poset": 4,
+      "boundary_rows": 1,
+      "targets": 3,
+      "value": "2/3",
+      "target_values": [
+        "1/6",
+        "2/3",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "2/3"
+        ],
+        [
+          "2/3",
+          "5/6"
+        ],
+        [
+          "1/2",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        4,
+        3,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 9,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "2/3",
+          "mixed_test_value": "2/3",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 9,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 13,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-831",
+      "poset": 2,
+      "boundary_rows": 2,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 9,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-832",
+      "poset": 3,
+      "boundary_rows": 1,
+      "targets": 2,
+      "value": "0",
+      "target_values": [
+        "0",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "2/3",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "2/3",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/3",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        3,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-833",
+      "poset": 4,
+      "boundary_rows": 2,
+      "targets": 3,
+      "value": "1/2",
+      "target_values": [
+        "1/6",
+        "1/2",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "1"
+        ],
+        [
+          "1"
+        ],
+        [
+          "1/2",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1/2",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/6"
+        ],
+        [
+          "5/6",
+          "1/2"
+        ],
+        [
+          "1/6",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2,
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 8,
+          "candidate_mixtures": 20,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/2",
+          "mixed_test_value": "1/2",
+          "strict_gap": "0",
+          "pure_actions": 15,
+          "candidate_mixtures": 51,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 8,
+          "candidate_mixtures": 20,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-834",
+      "poset": 2,
+      "boundary_rows": 1,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 3,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-835",
+      "poset": 3,
+      "boundary_rows": 2,
+      "targets": 2,
+      "value": "0",
+      "target_values": [
+        "0",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 9,
+          "candidate_mixtures": 17,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 9,
+          "candidate_mixtures": 17,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-836",
+      "poset": 4,
+      "boundary_rows": 1,
+      "targets": 3,
+      "value": "1/6",
+      "target_values": [
+        "0",
+        "1/6",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0",
+          "1/3",
+          "1/2"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/6",
+          "1/2"
+        ],
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2,
+        5
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 9,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 9,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 9,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-837",
+      "poset": 2,
+      "boundary_rows": 2,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 7,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-838",
+      "poset": 3,
+      "boundary_rows": 1,
+      "targets": 2,
+      "value": "1/3",
+      "target_values": [
+        "1/3",
+        "1/3"
+      ],
+      "listed_minimizers": [
+        [
+          "1/2",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/3"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        3,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/3",
+          "mixed_test_value": "1/3",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/3",
+          "mixed_test_value": "1/3",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-839",
+      "poset": 4,
+      "boundary_rows": 2,
+      "targets": 3,
+      "value": "1/2",
+      "target_values": [
+        "5/12",
+        "1/2",
+        "1/3"
+      ],
+      "listed_minimizers": [
+        [
+          "1/2"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "2/3"
+        ],
+        [
+          "1/3",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false,
+        false
+      ],
+      "interior_required": [
+        true,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        4,
+        2,
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/3",
+          "mixed_test_value": "5/12",
+          "strict_gap": "1/12",
+          "pure_actions": 15,
+          "candidate_mixtures": 87,
+          "mixed_witness": {
+            "left": [
+              "1/3",
+              "1/2"
+            ],
+            "right": [
+              "1/2",
+              "1/3"
+            ],
+            "left_weight": "1/2"
+          }
+        },
+        {
+          "pure_test_value": "1/2",
+          "mixed_test_value": "1/2",
+          "strict_gap": "0",
+          "pure_actions": 15,
+          "candidate_mixtures": 87,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/3",
+          "mixed_test_value": "1/3",
+          "strict_gap": "0",
+          "pure_actions": 14,
+          "candidate_mixtures": 79,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-840",
+      "poset": 2,
+      "boundary_rows": 1,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 3,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-841",
+      "poset": 3,
+      "boundary_rows": 2,
+      "targets": 2,
+      "value": "1/6",
+      "target_values": [
+        "1/6",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0"
+        ],
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "1/3"
+        ],
+        [
+          "0",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 9,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 9,
+          "candidate_mixtures": 35,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-842",
+      "poset": 4,
+      "boundary_rows": 1,
+      "targets": 3,
+      "value": "2/3",
+      "target_values": [
+        "2/3",
+        "1/6",
+        "2/3"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "2/3"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ],
+        [
+          "2/3",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "2/3",
+          "mixed_test_value": "2/3",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 11,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 8,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "2/3",
+          "mixed_test_value": "2/3",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 8,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-843",
+      "poset": 2,
+      "boundary_rows": 2,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "3/4",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "3/4",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 3,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-844",
+      "poset": 3,
+      "boundary_rows": 1,
+      "targets": 2,
+      "value": "0",
+      "target_values": [
+        "0",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/6",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 5,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-845",
+      "poset": 4,
+      "boundary_rows": 2,
+      "targets": 3,
+      "value": "1/3",
+      "target_values": [
+        "1/6",
+        "1/3",
+        "1/3"
+      ],
+      "listed_minimizers": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/6",
+          "1/3"
+        ],
+        [
+          "1/3",
+          "2/3"
+        ],
+        [
+          "1/3",
+          "2/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        4,
+        4,
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 15,
+          "candidate_mixtures": 86,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/3",
+          "mixed_test_value": "1/3",
+          "strict_gap": "0",
+          "pure_actions": 14,
+          "candidate_mixtures": 77,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/3",
+          "mixed_test_value": "1/3",
+          "strict_gap": "0",
+          "pure_actions": 18,
+          "candidate_mixtures": 119,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-846",
+      "poset": 2,
+      "boundary_rows": 1,
+      "targets": 1,
+      "value": "1/2",
+      "target_values": [
+        "1/2"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/2",
+          "mixed_test_value": "1/2",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 2,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-847",
+      "poset": 3,
+      "boundary_rows": 2,
+      "targets": 2,
+      "value": "1/6",
+      "target_values": [
+        "1/6",
+        "1/18"
+      ],
+      "listed_minimizers": [
+        [
+          "1"
+        ],
+        [
+          "1/3"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1/3",
+          "1/3"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        true
+      ],
+      "breakpoint_candidates": [
+        3,
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 8,
+          "candidate_mixtures": 25,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "1/18",
+          "strict_gap": "1/18",
+          "pure_actions": 6,
+          "candidate_mixtures": 15,
+          "mixed_witness": {
+            "left": [
+              "-1/6",
+              "1/6"
+            ],
+            "right": [
+              "1/6",
+              "0"
+            ],
+            "left_weight": "1/3"
+          }
+        }
+      ]
+    },
+    {
+      "case": "seed-848",
+      "poset": 4,
+      "boundary_rows": 1,
+      "targets": 3,
+      "value": "1/6",
+      "target_values": [
+        "0",
+        "0",
+        "1/6"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1/3",
+          "2/3",
+          "1"
+        ],
+        [
+          "0",
+          "1/3",
+          "2/3",
+          "1"
+        ],
+        [
+          "2/3",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "2/3",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        4,
+        4,
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 11,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 11,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 11,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-849",
+      "poset": 2,
+      "boundary_rows": 2,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 4,
+          "candidate_mixtures": 7,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-850",
+      "poset": 3,
+      "boundary_rows": 1,
+      "targets": 2,
+      "value": "0",
+      "target_values": [
+        "0",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 3,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 2,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-851",
+      "poset": 4,
+      "boundary_rows": 2,
+      "targets": 3,
+      "value": "1/6",
+      "target_values": [
+        "1/6",
+        "1/6",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "1"
+        ],
+        [
+          "1"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "1/6"
+        ],
+        [
+          "2/3",
+          "1/6"
+        ],
+        [
+          "2/3",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        4,
+        3,
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 17,
+          "candidate_mixtures": 83,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 19,
+          "candidate_mixtures": 95,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 19,
+          "candidate_mixtures": 95,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-852",
+      "poset": 2,
+      "boundary_rows": 1,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 2,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-853",
+      "poset": 3,
+      "boundary_rows": 2,
+      "targets": 2,
+      "value": "1/6",
+      "target_values": [
+        "1/6",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "1"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "1/2",
+          "1/6"
+        ],
+        [
+          "1/3",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        false
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 9,
+          "candidate_mixtures": 17,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 8,
+          "candidate_mixtures": 15,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-854",
+      "poset": 4,
+      "boundary_rows": 1,
+      "targets": 3,
+      "value": "0",
+      "target_values": [
+        "0",
+        "0",
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1/3"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1/3"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "1/3"
+        ],
+        [
+          "0",
+          "1/3"
+        ],
+        [
+          "0",
+          "1/3"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        false,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        4,
+        3,
+        3
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 13,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 13,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 5,
+          "candidate_mixtures": 13,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-855",
+      "poset": 2,
+      "boundary_rows": 2,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 3,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-856",
+      "poset": 3,
+      "boundary_rows": 1,
+      "targets": 2,
+      "value": "1/2",
+      "target_values": [
+        "0",
+        "1/2"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false
+      ],
+      "breakpoint_candidates": [
+        2,
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 3,
+          "candidate_mixtures": 3,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/2",
+          "mixed_test_value": "1/2",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 2,
+          "mixed_witness": null
+        }
+      ]
+    },
+    {
+      "case": "seed-857",
+      "poset": 4,
+      "boundary_rows": 2,
+      "targets": 3,
+      "value": "1/6",
+      "target_values": [
+        "1/6",
+        "1/6",
+        "1/12"
+      ],
+      "listed_minimizers": [
+        [
+          "1"
+        ],
+        [
+          "0",
+          "1/2",
+          "1"
+        ],
+        [
+          "1/2"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "2/3",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "1/6"
+        ]
+      ],
+      "interior_optimum_exists": [
+        false,
+        true,
+        true
+      ],
+      "interior_required": [
+        false,
+        false,
+        true
+      ],
+      "breakpoint_candidates": [
+        3,
+        3,
+        4
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 14,
+          "candidate_mixtures": 77,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "1/6",
+          "mixed_test_value": "1/6",
+          "strict_gap": "0",
+          "pure_actions": 16,
+          "candidate_mixtures": 100,
+          "mixed_witness": null
+        },
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "1/12",
+          "strict_gap": "1/12",
+          "pure_actions": 12,
+          "candidate_mixtures": 57,
+          "mixed_witness": {
+            "left": [
+              "0",
+              "1/6"
+            ],
+            "right": [
+              "1/6",
+              "0"
+            ],
+            "left_weight": "1/2"
+          }
+        }
+      ]
+    },
+    {
+      "case": "seed-858",
+      "poset": 2,
+      "boundary_rows": 1,
+      "targets": 1,
+      "value": "0",
+      "target_values": [
+        "0"
+      ],
+      "listed_minimizers": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "minimizer_intervals": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "endpoint_values": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "interior_optimum_exists": [
+        true
+      ],
+      "interior_required": [
+        false
+      ],
+      "breakpoint_candidates": [
+        2
+      ],
+      "test_game": [
+        {
+          "pure_test_value": "0",
+          "mixed_test_value": "0",
+          "strict_gap": "0",
+          "pure_actions": 2,
+          "candidate_mixtures": 2,
+          "mixed_witness": null
+        }
+      ]
+    }
+  ],
+  "scope": "finite cross-check; not a proof of the general contract theorem"
+}

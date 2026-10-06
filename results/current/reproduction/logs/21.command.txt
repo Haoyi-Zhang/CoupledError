@@ -1,0 +1,1 @@
+python3 src/verify.py inputs/boundary-sensitive.json <temporary-worktree>/command-line-checks/certificate.json

@@ -1,0 +1,1 @@
+python3 src/join_tree.py inputs/join-tree.json <temporary-worktree>/command-line-checks/join-tree-single-cell-mutated.json --verify

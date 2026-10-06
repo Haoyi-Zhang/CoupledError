@@ -1,0 +1,1 @@
+python3 src/join_tree.py inputs/join-tree.json results/join-tree.certificate.json --verify

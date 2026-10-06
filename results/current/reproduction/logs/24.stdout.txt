@@ -1,0 +1,1 @@
+exact order-coupling certificate value = 1/4

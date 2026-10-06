@@ -1,0 +1,61 @@
+{
+  "kind": "order-coupling-loss",
+  "value": "1/4",
+  "proofs": [
+    {
+      "value": "1/4",
+      "lambda": [
+        "1/2",
+        "1/2"
+      ],
+      "row_deficit": [
+        "1/4"
+      ],
+      "transport": [
+        [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/2",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/4",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/4",
+            "0"
+          ]
+        ]
+      ],
+      "dual_alpha": "1/2",
+      "dual_weights": [
+        [
+          "1/2",
+          "1/2",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    }
+  ],
+  "worst_generator": 0,
+  "witness": {
+    "frame": "target-law",
+    "monitor": "1[x-not-leq-y]",
+    "new_floor": "0",
+    "old_floor": "1/4"
+  }
+}
