@@ -95,9 +95,17 @@ python3 reproduce.py
 
 The command runs one child at a time, applies a 40 CPU-second and 3,500-MiB
 address-space limit, regenerates all finite reference results, compares every
-scientific JSON/CSV file while excluding only volatile runtime fields, and
+scientific JSON/CSV file while excluding volatile runtime fields, and
 exits nonzero on any mismatch or timeout. It also exercises the documented
 producer/replay command-line routes in temporary files.
+
+For the 24 records in `order-certificates.json`, LP dual witnesses need not be
+unique. Both the retained and regenerated certificates must pass optimizer-free
+exact rational replay. Inputs, seeds, coverage, global values and every target
+generator's optimum must agree; a differing valid dual vector alone is not a
+scientific discrepancy. Other scientific records remain exact comparisons.
+Four regressions reject invalid duals, seed drift and missing records while
+accepting a genuinely equivalent dual witness.
 
 The retained historical Linux clean run reported:
 

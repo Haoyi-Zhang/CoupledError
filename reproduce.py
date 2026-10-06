@@ -23,6 +23,7 @@ import sys
 import tempfile
 import time
 from pathlib import Path
+from compare_certificates import compare_order_certificates
 
 ROOT = Path(__file__).resolve().parent
 VOLATILE = {"cpu_seconds", "wall_seconds", "peak_rss_kib"}
@@ -149,6 +150,8 @@ def main():
         execute(["tests/scaling_profile.py"])
         execute(["tests/input_validation.py"])
         execute(["tests/semantic_boundaries.py"])
+        execute(["-m","unittest","discover","-s","tests",
+                 "-p","test_reproduction_comparison.py","-v"])
         execute(["tests/campaign.py", "replay"])
 
         replay_record = json.loads(
@@ -315,9 +318,11 @@ def main():
 
         after = snapshot(run_root)
 
+    certificate_key='results/order-certificates.json'
+    certificates_compared=compare_order_certificates(before[certificate_key],after[certificate_key])
     differences = sorted(set(before) ^ set(after))
     differences += sorted(key for key in before.keys() & after.keys()
-                          if before[key] != after[key])
+                          if key!=certificate_key and before[key] != after[key])
     if differences:
         raise RuntimeError("scientific reference mismatch: " + ", ".join(differences))
 
@@ -327,6 +332,8 @@ def main():
     record = {
         "scientific_files_compared": len(before),
         "scientific_mismatches": 0,
+        "order_certificate_objects_exactly_replayed": certificates_compared,
+        "order_witness_identity_required": False,
         "contextual_certificates_replayed": 456,
         "dependency_certificate_objects": 1,
         "dependency_generated_certificate_replays": 1,
