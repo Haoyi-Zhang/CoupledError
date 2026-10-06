@@ -40,10 +40,12 @@ probability. Its certificates are replayed by `src/verify.py`.
 
 ## Requirements
 
-Replay-only verification, join-tree construction/replay, the legacy binary
-producer, and the self-contained finite enumerators use Python 3 and its
-standard library.  A Linux-like environment supplies the optional resource
-limits used by `reproduce.py`.
+Replay-only verification and join-tree construction/replay use Python 3 and
+its standard library on Windows or Linux. The legacy binary producer and
+finite-enumerator command-line scripts also use only the standard library,
+but their resource-reporting harnesses import Linux's `resource` module.
+The full `reproduce.py` orchestrator requires Linux for its resource limits;
+the exact mathematical functions are separable from those harnesses.
 
 The full `python3 reproduce.py` command additionally requires SciPy because it
 regenerates finite-poset order certificates and runs the differential
@@ -97,7 +99,7 @@ scientific JSON/CSV file while excluding only volatile runtime fields, and
 exits nonzero on any mismatch or timeout. It also exercises the documented
 producer/replay command-line routes in temporary files.
 
-The frozen clean run reported:
+The retained historical Linux clean run reported:
 
 - 51 scientific files compared;
 - zero scientific mismatches;
@@ -111,6 +113,41 @@ The frozen clean run reported:
 
 Resource measurements vary by machine and are not included in the exact
 scientific comparison.
+
+The additional `tests/semantic_boundaries.py` gate checks the difference
+between a fresh mode independent of the frame and an averaged all-coupling
+law (`1/4` versus `0`), the necessity of variable-prior fiber equalities
+(`1/2` versus an unconstrained `0`), and the order parser's exact acceptance
+of integers and nonreduced rational strings. Run it with Python's standard
+library on either platform:
+
+```sh
+python3 -B tests/semantic_boundaries.py
+```
+
+The current separate Windows checks replayed the retained 456 contextual
+certificates and called bounded standard-library mathematical functions.
+They did not rerun the SciPy order producer or the Linux whole-project
+orchestrator and do not replace the historical resource record.
+
+For retained raw logs and a persistent isolated run tree, use an absent output
+directory outside this repository:
+
+```sh
+python3 -B reproduce.py --output-dir /tmp/p046-scientific-output
+```
+
+This route saves each subprocess command, stdout, stderr, and exit status
+before checking its result. It retains the worktree on both success and
+failure, and saves the completed resource record there rather than replacing
+the historical record in this repository. The default route still uses a
+temporary worktree. The workflow
+`.github/workflows/scientific-checks.yml` is prepared for the flat artifact
+repository on pushes to `main`: Ubuntu 24.04, Python 3.12, pinned SciPy/NumPy,
+one numerical thread, 3,500-MiB address-space limit, and a 240-second whole-run
+wall deadline. All existing comparison/count/exit gates remain active and raw
+outputs are uploaded with `always()`. Preparing this workflow is not evidence
+of a remote run.
 
 ## Focused commands
 

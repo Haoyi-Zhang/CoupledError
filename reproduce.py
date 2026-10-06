@@ -6,9 +6,13 @@ standard library.  The full orchestration also runs the SciPy-backed order
 certificate producer and the differential contract driver that calls both the
 producer and replay checker.  Every produced candidate is accepted only after
 exact rational replay.  The supplied repository is never used as the
-generation workspace: all stages run in a fresh temporary copy and only the
-final volatile resource record is written back to the supplied tree.
+generation workspace: all stages run in a fresh isolated copy. With
+--output-dir, raw logs and the resource record stay outside the supplied tree;
+without it, the copy is temporary and the final volatile resource record is
+written back to the supplied tree for compatibility with the original route.
 """
+import argparse
+from contextlib import nullcontext
 import json
 import os
 import re
@@ -49,6 +53,17 @@ def snapshot(base):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir", type=Path,
+                        help="retain the isolated run tree and every stage stdout/stderr")
+    args = parser.parse_args()
+    output = args.output_dir.resolve() if args.output_dir else None
+    if output:
+        # Never overwrite a previous campaign or recursively copy this output.
+        if output == ROOT or ROOT in output.parents:
+            raise ValueError("output directory must be outside the artifact tree")
+        output.mkdir(parents=True, exist_ok=False)
+        (output / "logs").mkdir()
     if hasattr(os, "sched_getaffinity"):
         os.sched_setaffinity(0, {min(os.sched_getaffinity(0))})
     resource.setrlimit(resource.RLIMIT_AS, (3500 * 1024**2, 3500 * 1024**2))
@@ -60,7 +75,9 @@ def main():
     child_start = resource.getrusage(resource.RUSAGE_CHILDREN)
     stages = []
 
-    with tempfile.TemporaryDirectory(prefix="compositional-reliability-reproduction-") as td:
+    storage = (nullcontext(str(output)) if output else
+               tempfile.TemporaryDirectory(prefix="compositional-reliability-reproduction-"))
+    with storage as td:
         temp_root = Path(td)
         run_root = temp_root / "compositional-reliability"
         shutil.copytree(
@@ -73,22 +90,43 @@ def main():
 
         def execute(args, expected=0):
             stage_start = time.perf_counter()
-            completed = subprocess.run(
-                [sys.executable, *args],
-                cwd=run_root,
-                capture_output=True,
-                text=True,
-                timeout=40,
-                check=False,
-            )
             display = "python3 " + " ".join(str(arg) for arg in args)
             display = display.replace(str(temp_root), "<temporary-worktree>")
+            index = len(stages) + 1
+            log_base = output / "logs" / f"{index:02d}" if output else None
+            if log_base:
+                log_base.with_suffix(".command.txt").write_text(display + "\n", encoding="utf-8")
+            try:
+                if log_base:
+                    # Stream directly to persistent files. Even an outer
+                    # whole-run termination leaves the in-flight raw output.
+                    with log_base.with_suffix(".stdout.txt").open("w", encoding="utf-8") as out, \
+                            log_base.with_suffix(".stderr.txt").open("w", encoding="utf-8") as err:
+                        completed = subprocess.run(
+                            [sys.executable, "-B", *args], cwd=run_root,
+                            stdout=out, stderr=err, text=True, timeout=40, check=False)
+                    completed.stdout = log_base.with_suffix(".stdout.txt").read_text(encoding="utf-8")
+                    completed.stderr = log_base.with_suffix(".stderr.txt").read_text(encoding="utf-8")
+                else:
+                    completed = subprocess.run(
+                        [sys.executable, "-B", *args], cwd=run_root,
+                        capture_output=True, text=True, timeout=40, check=False)
+            except subprocess.TimeoutExpired as exc:
+                if log_base:
+                    log_base.with_suffix(".command.txt").write_text(display + "\nTIMEOUT\n", encoding="utf-8")
+                    stages.append({"command": display,
+                                   "wall_seconds": time.perf_counter() - stage_start,
+                                   "expected_exit": expected, "exit_code": 124})
+                    (output / "stages.json").write_text(json.dumps(stages, indent=2) + "\n", encoding="utf-8")
+                raise
             stages.append({
                 "command": display,
                 "wall_seconds": time.perf_counter() - stage_start,
                 "expected_exit": expected,
                 "exit_code": completed.returncode,
             })
+            if output:
+                (output / "stages.json").write_text(json.dumps(stages, indent=2) + "\n", encoding="utf-8")
             if completed.returncode != expected:
                 raise RuntimeError(
                     f"{display}: expected exit {expected}, got {completed.returncode}; "
@@ -110,6 +148,7 @@ def main():
         execute(["tests/metamorphic_invariance.py"])
         execute(["tests/scaling_profile.py"])
         execute(["tests/input_validation.py"])
+        execute(["tests/semantic_boundaries.py"])
         execute(["tests/campaign.py", "replay"])
 
         replay_record = json.loads(
@@ -328,7 +367,9 @@ def main():
         "stages": stages,
         "scope": "finite exact reproduction, not a general mechanized proof or independent review",
     }
-    (ROOT / "results" / "reproduction.json").write_text(
+    record_path = (output / "reproduction.json" if output else
+                   ROOT / "results" / "reproduction.json")
+    record_path.write_text(
         json.dumps(record, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({key: value for key, value in record.items() if key != "stages"},
                      sort_keys=True))
