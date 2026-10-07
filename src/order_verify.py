@@ -23,6 +23,7 @@ def replay(task, cert):
     require(isinstance(cert["proofs"], list) and len(cert["proofs"]) == len(new), "proof count mismatch")
     k, n = len(boundary), len(outcomes)
     upsets = upward_sets(leq)
+    old_upset_masses = None
     values = []
     for target, proof in zip(new, cert["proofs"]):
         require(isinstance(proof, dict) and set(proof) == {"value", "lambda", "row_deficit", "transport", "dual_alpha", "dual_weights"},
@@ -58,8 +59,14 @@ def replay(task, cert):
         require(all(v >= 0 for row in z for v in row), "negative dual weight")
         for s in range(k):
             require(sum(z[s]) <= 1, "dual row budget exceeded")
-        for g in old:
-            require(alpha <= sum(upset_mass(g, s, U)*z[s][ui]
+        if old_upset_masses is None:
+            # Checker-owned immutable coefficients, local to this replay.
+            # Prepare only after the first proof's preceding checks succeed.
+            old_upset_masses = tuple(
+                tuple(tuple(upset_mass(g, s, U) for U in upsets)
+                      for s in range(k)) for g in old)
+        for masses in old_upset_masses:
+            require(alpha <= sum(masses[s][ui]*z[s][ui]
                                  for s in range(k) for ui, U in enumerate(upsets)),
                     "dual old-generator inequality violated")
         dual_value = alpha - sum(upset_mass(target, s, U)*z[s][ui]

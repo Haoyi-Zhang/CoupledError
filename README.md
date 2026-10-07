@@ -34,6 +34,17 @@ The target-law witness records the finite relational context that attains the
 value. `src/order_verify.py` checks the certificate with `fractions.Fraction`
 and imports no optimizer.
 
+Within one replay, the checker prepares its own immutable exact old-generator
+upward-set coefficients once, after the first proof's preceding checks, and
+reuses them across target proofs. Every original inequality is still checked;
+there is no cross-call cache or producer-supplied coefficient table. The
+portable independent token-coupling regression runs explicitly in scientific
+CI, separately from the retained reproduction/count gates:
+
+```sh
+python3 -B tests/coefficient_regression.py
+```
+
 The older `p/a` interface remains as a binary specialization. There `a[s]`
 is joint mass of boundary state `s` and Boolean success, not a conditional
 probability. Its certificates are replayed by `src/verify.py`.
