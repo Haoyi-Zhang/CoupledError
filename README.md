@@ -110,13 +110,25 @@ scientific JSON/CSV file while excluding volatile runtime fields, and
 exits nonzero on any mismatch or timeout. It also exercises the documented
 producer/replay command-line routes in temporary files.
 
-For the 24 records in `order-certificates.json`, LP dual witnesses need not be
-unique. Both the retained and regenerated certificates must pass optimizer-free
-exact rational replay. Inputs, seeds, coverage, global values and every target
-generator's optimum must agree; a differing valid dual vector alone is not a
+For the 24 records in `order-certificates.json`, optimal mixtures, transports,
+and LP dual witnesses need not be unique. Both the retained and regenerated
+certificates must pass optimizer-free exact rational replay. Inputs, seeds,
+coverage, global values and every target
+generator's optimum must agree; a differing valid proof witness alone is not a
 scientific discrepancy. Other scientific records remain exact comparisons.
-Four regressions reject invalid duals, seed drift and missing records while
-accepting a genuinely equivalent dual witness.
+The current comparator suite contains six test methods: it accepts an
+equivalent dual and an alternative optimal named-case mixture, and rejects an
+invalid dual, a changed declared value, seed drift, and missing records:
+
+```sh
+python3 -B -m unittest discover -s tests -p test_reproduction_comparison.py -v
+```
+
+The named-case campaign uses the same semantic comparison before its later
+campaign-wide gate. Passing these focused methods does not regenerate the
+Linux campaigns or re-establish their file, certificate, stage, or resource
+totals. The retained full-run records do not establish a fresh Linux
+regeneration after the named-case comparison change.
 
 The retained historical Linux clean run reported:
 
@@ -244,6 +256,9 @@ which is established by the written paper proof and mirrored in
 - `src/front_end.py` — finite Boolean source-model validation and projection.
 - `tests/order_campaign.py` — Boolean-square order oracle, triangle checks,
   random cases, dependency checks, and corrupted-certificate controls.
+- `tests/test_reproduction_comparison.py` — six focused semantic-comparison
+  methods, including the alternative named-case mixture and rejection of
+  changed objectives; separate from retained campaign totals.
 - `tests/poset_sweep.py` — independent transport/upward-set, triangle, and
   target-monitor regression checks across six finite order shapes.
 - `tests/all_posets_exhaustive.py` — self-contained exhaustive duality,
