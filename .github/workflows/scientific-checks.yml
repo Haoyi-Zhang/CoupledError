@@ -39,6 +39,7 @@ jobs:
           set -euo pipefail
           test -f reproduce.py
           test -f src/order_verify.py
+          python -B -m unittest discover -s tests -p 'test_reproduction_comparison.py' -v 2>&1 | tee "$RUNNER_TEMP/p046-scientific-evidence/comparison-regressions.log"
           python -B tests/coefficient_regression.py > "$RUNNER_TEMP/p046-scientific-evidence/coefficient-regression.log" 2>&1 || { cat "$RUNNER_TEMP/p046-scientific-evidence/coefficient-regression.log"; exit 1; }
           ulimit -v 3584000
           ulimit -t 300

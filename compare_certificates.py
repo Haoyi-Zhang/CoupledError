@@ -6,6 +6,21 @@ sys.path.insert(0,str(Path(__file__).resolve().parent/'src'))
 from order_verify import replay
 
 
+def compare_order_record(a, b):
+    if ({k:v for k,v in a.items() if k!='certificate'} !=
+            {k:v for k,v in b.items() if k!='certificate'}):
+        raise ValueError('certificate input, seed, or declared value changed')
+    task=a['task']
+    av=replay(task,a['certificate'])
+    bv=replay(task,b['certificate'])
+    if av!=bv or av!=Fraction(a['value']):
+        raise ValueError('certificate objective changed')
+    ap=[Fraction(p['value']) for p in a['certificate']['proofs']]
+    bp=[Fraction(p['value']) for p in b['certificate']['proofs']]
+    if ap!=bp:
+        raise ValueError('per-generator optimum changed')
+
+
 def compare_order_certificates(left,right):
     if set(left)!= {'retained','random'} or set(right)!=set(left):
         raise ValueError('certificate campaign shape')
@@ -14,16 +29,5 @@ def compare_order_certificates(left,right):
     pairs=[(left['retained'][k],right['retained'][k]) for k in sorted(left['retained'])]
     pairs+=list(zip(left['random'],right['random']))
     for a,b in pairs:
-        if ({k:v for k,v in a.items() if k!='certificate'} !=
-                {k:v for k,v in b.items() if k!='certificate'}):
-            raise ValueError('certificate input, seed, or declared value changed')
-        task=a['task']
-        av=replay(task,a['certificate'])
-        bv=replay(task,b['certificate'])
-        if av!=bv or av!=Fraction(a['value']):
-            raise ValueError('certificate objective changed')
-        ap=[Fraction(p['value']) for p in a['certificate']['proofs']]
-        bp=[Fraction(p['value']) for p in b['certificate']['proofs']]
-        if ap!=bp:
-            raise ValueError('per-generator optimum changed')
+        compare_order_record(a,b)
     return len(pairs)

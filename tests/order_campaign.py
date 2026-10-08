@@ -12,7 +12,9 @@ from fractions import Fraction as F
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT/'src'))
+from compare_certificates import compare_order_record
 from order_common import parse_task, upward_sets
 from order_run import certificate
 from order_verify import Invalid, replay
@@ -122,7 +124,10 @@ def main():
         value=replay(task,cert)
         retained[name]={'task':task,'certificate':cert,'value':str(value)}
         reference=json.loads((ROOT/'results'/f'{name}.certificate.json').read_text())
-        if cert != reference: raise RuntimeError(f'{name} producer changed')
+        compare_order_record(
+            {'task':task,'certificate':reference,'value':str(replay(task,reference))},
+            retained[name],
+        )
     random_records=[]
     for seed in range(710,730):
         task=random_task(seed)
