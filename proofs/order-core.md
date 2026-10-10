@@ -351,8 +351,11 @@ assumption is used.  QED.
 ### 10.1 Lifting an outcome coupling
 
 Suppose a component has a full law on `(B,L,X)`, where `L` is private, and a
-frame has a law on `(B,R)`, where `R` is private.  If law constraints do not
-cross from `L` to `R`, every coupling of the projected `(B,X)` and `(B,R)` laws
+frame has a law on `(B,R)`, where `R` is private. Every law constraint must lie
+wholly within `(B,L,X)` or wholly within `(B,R)`, with no additional
+outcome-to-frame or private-to-frame law relation. The monitor may separately
+read `(B,X,R)` and must be monotone in `X`. Under this complete closed-scope
+premise, every coupling of the projected `(B,X)` and `(B,R)` laws
 lifts to a full law: multiply the coupling by the component conditional law of
 `L` given `(B,X)`, taking zero on zero-mass cells.  Thus the order-coupling
 semantics is exact at the declared interface.  A hidden crossing constraint
