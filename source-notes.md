@@ -193,13 +193,10 @@ fractions, but that script's differential driver imports and calls both the
 SciPy-backed producer and the replay checker. Python and SciPy are software
 dependencies, not scholarly baselines.
 
-## AI-use and review boundary
+## Scope
 
-
-A proof in this package supports a mathematical statement only under the
-stated assumptions. A finite replay supports a finite implementation result.
-Neither one establishes novelty, acceptance, deployed reliability, or human
-authorship approval.
+Mathematical statements rely on their stated assumptions; finite replays
+establish only the reported finite implementation results.
 
 ## Minimax source
 
