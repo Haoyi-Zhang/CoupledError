@@ -1,0 +1,1 @@
+{"cpu_seconds": 0.015625, "peak_rss_kib": 18772.0, "result": {"cases_checked": 14, "expected_rejections": 12, "unexpected_acceptances": 0}, "stage": "input-validation", "wall_seconds": 0.5621355000184849, "workers": 1}

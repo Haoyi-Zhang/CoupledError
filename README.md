@@ -1,5 +1,45 @@
 # Order-coupling contract artifact
 
+## Current available execution and ordinary transport baseline
+
+`reproduce_available.py --portable --output-dir OUTSIDE_ARTIFACT` runs all
+locally available stages and retains their raw outputs. Normal and `-O` modes
+exercise the same inputs; counts must not be added as new cases. Windows mode
+uses actual CPU affinity and peak working-set measurement, but does **not**
+claim POSIX CPU/address-space limits or child CPU accounting. Missing SciPy
+leaves four numerical campaign stages and the order-producer CLI unavailable.
+This is not a successful full Linux/SciPy regeneration; `reproduce.py` remains
+the complete reference route and now fails explicitly on an unsupported host.
+The available route includes the existing 50-task/99-target exact mathematics
+without calling the unavailable differential producer, and the full join-tree
+consumer with the retained cycle/separator negatives.
+
+`src/transport_verify.py TASK CERT --convert-to NEW_FILE` creates an ordinary
+transport-potential certificate for the same exact finite optimum. Then use
+`src/transport_verify.py TASK NEW_FILE` for independent destination replay.
+This checker uses all cell dual inequalities, all generator bounds, both
+marginals, and the outer maximum, with the same information and guarantee as
+upward-set replay. Its replay does not enumerate upsets; conversion still does.
+The ordinary LP, directed set lifting and law-level target-distance witness
+are inherited mathematics, not new-distance or priority claims. Appendix A in
+the manuscript gives exact proof correspondence and the Smyth-direction scope.
+
+`tests/transport_cost.py --output-dir OUTSIDE_ARTIFACT` measures the complete
+conversion/serialization/validation route against direct upset replay on the
+same 24 retained tasks, with three alternating repeats. Numerical production
+is excluded from both sides. The conversion route is slower in the measured
+run; raw paired inputs, proofs, costs, environment and availability receipts
+are under `evidence/current`. These are finite parser/replay measurements,
+not a deployment, numerical-generation speedup or independent human review.
+
+Semantic regression gates remain active under `-O`. CLI comparisons now allow
+different exact feasible witnesses with equal per-generator optima; numerical
+producer API/CLI results undergo complete replay before return or write.
+`test_admission_regressions.py` and `test_transport_correspondence.py` retain
+the controlled failure anchors, including changed priors and nonmaximal-target
+proof corruption. The complete driver consumes these plus the coefficient and
+available-workflow suites. The original historical results remain unchanged.
+
 This standalone repository supports the paper *Order-Coupling Contracts for
 Correlated Approximate Pipelines*. It contains exact finite inputs, rational
 proof certificates, optimizer-free replay code, independent exact oracles,

@@ -195,6 +195,19 @@ dependencies, not scholarly baselines.
 
 ## Scope
 
+The current bounded correspondence makes the Smyth half-Hausdorff direction
+explicit at each unchanged boundary prior. The author's comprehensive primary
+preprint, arXiv:1707.03784v9, Section 13.1 (Definition 13.2, Lemmas 13.4--13.5),
+gives the sup-target/inf-source formula and the law-level distance-to-target
+witness. The manuscript supplies a finite algebraic upward-closure calculation
+and concrete frame realization, not a strict novelty separation or an unchecked
+instantiation of every topological premise. The 190-page text was not fully
+certified in this pass. Rely's primary Section 3.4 and Sections 4--5 were read
+for subprobability, joint reliability and its soundness theorem; no source
+compiler or native Rely experiment is claimed. The 2026 Hampus--Nyberg complete
+publisher text remains an independent reading gate. Existing dated resource
+records are historical, not newly completed fulltext checks.
+
 Mathematical statements rely on their stated assumptions; finite replays
 establish only the reported finite implementation results.
 

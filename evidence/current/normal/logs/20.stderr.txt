@@ -1,0 +1,8 @@
+test_actual_cli_comparison_accepts_equivalent_proof (test_admission_regressions.AdmissionRegressions.test_actual_cli_comparison_accepts_equivalent_proof) ... ok
+test_prior_value_gate_survives_optimizer (test_admission_regressions.AdmissionRegressions.test_prior_value_gate_survives_optimizer) ... ok
+test_semantic_gate_survives_optimizer (test_admission_regressions.AdmissionRegressions.test_semantic_gate_survives_optimizer) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.009s
+
+OK

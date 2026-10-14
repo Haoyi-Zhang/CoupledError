@@ -26,6 +26,11 @@ def marginal(law, columns):
     return {key: value for key, value in out.items() if value}
 
 
+def check(condition, message):
+    if not condition:
+        raise RuntimeError(message)
+
+
 def main():
     # S,M,G,H. Fresh mode M is independent of frame H given S. The
     # ambient-correlated law has identical component and frame marginals.
@@ -33,14 +38,14 @@ def main():
              for s, m, h in product((0, 1), repeat=3)]
     ambient = [(s, m, int(s == m), int(s != m), F(1, 4))
                for s, m in product((0, 1), repeat=2)]
-    assert marginal(fresh, (0, 1, 2)) == marginal(ambient, (0, 1, 2))
-    assert marginal(fresh, (0, 3)) == marginal(ambient, (0, 3))
+    check(marginal(fresh, (0, 1, 2)) == marginal(ambient, (0, 1, 2)), "component marginal changed")
+    check(marginal(fresh, (0, 3)) == marginal(ambient, (0, 3)), "frame marginal changed")
     fresh_floor = sum(row[-1] for row in fresh if row[2] and row[3])
     ambient_floor = sum(row[-1] for row in ambient if row[2] and row[3])
-    assert (fresh_floor, ambient_floor) == (F(1, 4), F(0))
-    assert marginal(fresh, (0, 1, 3)) == {
-        (s, m, h): F(1, 8) for s, m, h in product((0, 1), repeat=3)}
-    assert marginal(ambient, (0, 1, 3)) != marginal(fresh, (0, 1, 3))
+    check((fresh_floor, ambient_floor) == (F(1, 4), F(0)), "freshness floors changed")
+    check(marginal(fresh, (0, 1, 3)) == {
+        (s, m, h): F(1, 8) for s, m, h in product((0, 1), repeat=3)}, "fresh-mode factorization changed")
+    check(marginal(ambient, (0, 1, 3)) != marginal(fresh, (0, 1, 3)), "ambient witness became fresh")
     # In each mode, G is fixed by S, so every compatible frame coupling
     # gives floor 1/4. Forgetting mode-frame freshness admits floor zero.
     point_floors = []
@@ -50,12 +55,12 @@ def main():
                 "new": {"states": 2, "vertices": [
                     {"p": ["1/2", "1/2"], "a": ["1/4", "1/4"]}]}}
         point_floors.append(replay(task, certificate(task)))
-    assert point_floors == [F(1, 4), F(1, 4)]
+    check(point_floors == [F(1, 4), F(1, 4)], "mode-conditioned floors changed")
     task["old"]["vertices"] = [
         {"p": ["1/2", "1/2"], "a": a}
         for a in (["1/2", "0"], ["0", "1/2"])]
     relaxed_floor = replay(task, certificate(task))
-    assert relaxed_floor == 0
+    check(relaxed_floor == 0, "averaged all-coupling floor changed")
 
     # A variable-prior old mixture is constrained to the target fiber.
     # Dropping this equality admits the second old generator, giving zero
@@ -70,13 +75,13 @@ def main():
             {"p": ["1/2", "1/2"], "a": ["0", "0"]}]},
     }
     proof = certificate(variable)
-    assert replay(variable, proof) == F(1, 2)
-    assert proof["proofs"][2]["lambda"] == ["1/2", "1/2"]
-    assert F(proof["proofs"][2]["value"]) == F(1, 2)
+    check(replay(variable, proof) == F(1, 2), "same-prior fiber value changed")
+    check(proof["proofs"][2]["lambda"] == ["1/2", "1/2"], "same-prior mixture changed")
+    check(F(proof["proofs"][2]["value"]) == F(1, 2), "fiber proof value changed")
     unconstrained_endpoint = sum(max(F(0), F(c) - F(a)) for c, a in zip(
         variable["old"]["vertices"][1]["a"],
         variable["new"]["vertices"][2]["a"]))
-    assert unconstrained_endpoint == 0
+    check(unconstrained_endpoint == 0, "unconstrained-prior negative changed")
 
     order_task = json.loads((ROOT / "inputs/order-relational.json").read_text("utf-8"))
     order_cert = json.loads((ROOT / "results/order-relational.certificate.json").read_text("utf-8"))
@@ -85,11 +90,11 @@ def main():
         for generator in integer_task[side]["generators"]:
             generator["mass"] = [[int(F(v)) if F(v).denominator == 1 else v
                                   for v in row] for row in generator["mass"]]
-    assert parse_task(integer_task) == parse_task(order_task)
+    check(parse_task(integer_task) == parse_task(order_task), "integer parsing changed the task")
     nonreduced_cert = copy.deepcopy(order_cert)
     nonreduced_cert["value"] = "2/8"
-    assert order_replay(integer_task, nonreduced_cert) == F(1, 4)
-    assert rat("02/04") == F(1, 2)
+    check(order_replay(integer_task, nonreduced_cert) == F(1, 4), "nonreduced proof replay changed")
+    check(rat("02/04") == F(1, 2), "nonreduced rational parsing changed")
     print(json.dumps({
         "fresh_mode_floor": str(fresh_floor),
         "averaged_all_coupling_floor": str(relaxed_floor),

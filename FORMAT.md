@@ -84,6 +84,31 @@ The witness object has exactly:
 This witnesses the declared finite contextual semantics. It does not prove
 that an outside application's outcome order or monitor is correct.
 
+## Ordinary transport-potential certificate
+
+The same order task also admits `kind: "transport-potential-loss"`, replayed
+by `src/transport_verify.py` without importing a numerical optimizer, the
+production checker, or an upward-set enumerator. Its top-level fields are
+`kind`, `value`, `proofs`, `worst_generator`, and the unchanged target-law
+`witness`. Each target proof has exactly `value`, `lambda`, `transport`,
+`alpha`, `left`, and `right`. The last two are boundary-by-outcome matrices
+of signed rational dual potentials, not probability masses. The checker
+requires `left[s][x]+right[s][y] <= 1[x not<=y]`, the generator lower bounds,
+both transport marginals, nonnegative transport, equal exact primal/dual
+objectives, and the maximum over **all** target generators. It shares the
+strict task parser and rational limits with the upset checker, not its dual
+constraint code.
+
+`--convert-to DEST` converts the existing upward witness, verifies the
+destination, and creates a new file exclusively. Mathematical conversion is
+exact; representation limits can still reject a converted rational. Conversion
+enumerates upsets and is not a polynomial-time producer. Complete cost data
+include conversion and destination replay, not just a potential matrix. That
+matrix need not be smaller on the retained small orders.
+An invalid source can convert only if its destination independently satisfies
+all complete optimality obligations; the converter is not an acceptance oracle
+for the original source format. Classical LP duality proves this correspondence.
+
 ## Join-tree dependency task
 
 A join-tree task has exactly `variables`, `bags`, `tree_edges`, and

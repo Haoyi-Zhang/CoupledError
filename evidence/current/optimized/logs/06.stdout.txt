@@ -1,0 +1,1 @@
+{"stage": "randomization", "workers": 1, "result": {"certificates_replayed": 2, "mixtures_checked": 17}, "cpu_seconds": 0.0, "wall_seconds": 0.003485499997623265, "peak_rss_kib": 19136.0}

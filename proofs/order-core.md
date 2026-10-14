@@ -399,6 +399,53 @@ are required.
 
 ## 11. Finite evidence and its limits
 
+### Ordinary transport and closest set-lifting correspondence
+
+For a fixed target n and the same old convex generators, the ordinary primal
+minimizes sum_(s,x,y) 1[x not<=y] pi_s(x,y), with lambda>=0, sum lambda=1,
+row marginals sum_i lambda_i m_i(s,x), and column marginals n(s,y).
+Its classical LP dual has signed a_s(x), b_s(y), alpha, with
+
+    a_s(x)+b_s(y) <= 1[x not<=y],
+    alpha <= sum_(s,x) m_i(s,x) a_s(x), for every old generator,
+    objective alpha + sum_(s,y) n(s,y) b_s(y).
+
+Multiplying generator bounds by the common mixture weights, adding the target
+term, and using both transport marginals bounds the dual by the transport cost.
+Feasibility and exact equal objectives certify the same optimum. Strong finite
+LP duality gives rational optimal witnesses for rational inputs; bounded input
+and proof formats impose additional admission limits.
+
+A valid upset witness converts with a_s(x)=sum_(U containing x) z_sU and
+b_s(y)=-a_s(y). Upward closure handles ordered cells; sum_U z_sU<=1 handles
+the rest. The objectives and generator bounds are unchanged. The destination
+checker checks all cells and generators without enumerating upsets; conversion
+still enumerates them. `src/transport_verify.py` implements this separate dual
+constraint path with the shared task parser. `tests/test_transport_correspondence.py`
+checks all 24 retained tasks, a literal token oracle, prior admission and a
+nonmaximal-target corruption. This is ordinary transport duality, not a new
+metric. Same-information full conversion/replay costs are retained, including
+their slower measured outcome.
+
+At each fixed prior p, put C_p^up={u: some m in C_p has delta(m,u)=0}.
+The directed triangle law proves
+
+    inf_(u in C_p^up) delta(u,n) = inf_(m in C_p) delta(m,n),
+    sup_(v in D_p^up) inf_(u in C_p^up) delta(u,v)
+      = sup_(n in D_p) inf_(m in C_p) delta(m,n).
+
+Thus the quotient is the Smyth-direction sup-target/inf-source set lifting,
+fiber by fiber, not the opposite Hoare direction. The law-level observation
+H_n(m)=delta(m,n) satisfies H_n(m)-H_n(m')<=delta(m,m'), has old lower
+envelope equal to the inner distance, and new lower envelope zero. The
+author's primary companion arXiv:1707.03784v9, Section 13.1, provides the
+general Smyth formula and target-distance witness. Our finite calculation is
+not a claim that every topological premise there has been instantiated or that
+this abstract structure is new. The target-law frame realizes that observation
+in the concrete component/frame semantics. The Boolean-square fixed-event
+negative does not defeat this richer same-information law-level baseline.
+See paper Appendix A for the corresponding written derivation.
+
 The retained campaign performs the following exact checks.
 
 * Four named order-coupling cases (binary specialization, correlated retrieval

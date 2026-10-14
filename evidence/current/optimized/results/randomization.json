@@ -1,0 +1,175 @@
+{
+  "floor_certificates": [
+    {
+      "case": "exposed-mode",
+      "floor": "1/4"
+    },
+    {
+      "case": "hidden-mode",
+      "floor": "0"
+    }
+  ],
+  "mixtures": [
+    {
+      "lambda": "0",
+      "nonconvex_loss": "0"
+    },
+    {
+      "lambda": "1/16",
+      "nonconvex_loss": "1/32"
+    },
+    {
+      "lambda": "1/8",
+      "nonconvex_loss": "1/16"
+    },
+    {
+      "lambda": "3/16",
+      "nonconvex_loss": "3/32"
+    },
+    {
+      "lambda": "1/4",
+      "nonconvex_loss": "1/8"
+    },
+    {
+      "lambda": "5/16",
+      "nonconvex_loss": "5/32"
+    },
+    {
+      "lambda": "3/8",
+      "nonconvex_loss": "3/16"
+    },
+    {
+      "lambda": "7/16",
+      "nonconvex_loss": "7/32"
+    },
+    {
+      "lambda": "1/2",
+      "nonconvex_loss": "1/4"
+    },
+    {
+      "lambda": "9/16",
+      "nonconvex_loss": "7/32"
+    },
+    {
+      "lambda": "5/8",
+      "nonconvex_loss": "3/16"
+    },
+    {
+      "lambda": "11/16",
+      "nonconvex_loss": "5/32"
+    },
+    {
+      "lambda": "3/4",
+      "nonconvex_loss": "1/8"
+    },
+    {
+      "lambda": "13/16",
+      "nonconvex_loss": "3/32"
+    },
+    {
+      "lambda": "7/8",
+      "nonconvex_loss": "1/16"
+    },
+    {
+      "lambda": "15/16",
+      "nonconvex_loss": "1/32"
+    },
+    {
+      "lambda": "1",
+      "nonconvex_loss": "0"
+    }
+  ],
+  "fresh_law": [
+    {
+      "S": 0,
+      "M": 0,
+      "G": 1,
+      "H": 0,
+      "mass": "1/8"
+    },
+    {
+      "S": 0,
+      "M": 0,
+      "G": 1,
+      "H": 1,
+      "mass": "1/8"
+    },
+    {
+      "S": 0,
+      "M": 1,
+      "G": 0,
+      "H": 0,
+      "mass": "1/8"
+    },
+    {
+      "S": 0,
+      "M": 1,
+      "G": 0,
+      "H": 1,
+      "mass": "1/8"
+    },
+    {
+      "S": 1,
+      "M": 0,
+      "G": 0,
+      "H": 0,
+      "mass": "1/8"
+    },
+    {
+      "S": 1,
+      "M": 0,
+      "G": 0,
+      "H": 1,
+      "mass": "1/8"
+    },
+    {
+      "S": 1,
+      "M": 1,
+      "G": 1,
+      "H": 0,
+      "mass": "1/8"
+    },
+    {
+      "S": 1,
+      "M": 1,
+      "G": 1,
+      "H": 1,
+      "mass": "1/8"
+    }
+  ],
+  "ambient_law": [
+    {
+      "S": 0,
+      "M": 0,
+      "G": 1,
+      "H": 0,
+      "mass": "1/4"
+    },
+    {
+      "S": 0,
+      "M": 1,
+      "G": 0,
+      "H": 1,
+      "mass": "1/4"
+    },
+    {
+      "S": 1,
+      "M": 0,
+      "G": 0,
+      "H": 1,
+      "mass": "1/4"
+    },
+    {
+      "S": 1,
+      "M": 1,
+      "G": 1,
+      "H": 0,
+      "mass": "1/4"
+    }
+  ],
+  "fresh_floor": "1/4",
+  "ambient_floor": "0",
+  "marginals_agree": true,
+  "new_generator_only_would_report": "0",
+  "true_nonconvex_loss": "1/4"
+}

@@ -10,12 +10,14 @@ from __future__ import annotations
 
 import json
 import os
-import resource
 import time
+import sys
 from collections import deque
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
+from runtime_support import configure, peak_rss_kib
 DENOMINATOR = 3
 
 
@@ -138,10 +140,7 @@ def witness_upward_violations(leq):
 
 
 def main() -> None:
-    if hasattr(os, "sched_getaffinity"):
-        os.sched_setaffinity(0, {min(os.sched_getaffinity(0))})
-    resource.setrlimit(resource.RLIMIT_AS, (3500 * 1024**2, 3500 * 1024**2))
-    resource.setrlimit(resource.RLIMIT_CPU, (40, 40))
+    configure()
     cpu_start = time.process_time()
     wall_start = time.perf_counter()
 
@@ -215,7 +214,7 @@ def main() -> None:
             "target_monitor_upward_violations")},
         "cpu_seconds": time.process_time() - cpu_start,
         "wall_seconds": time.perf_counter() - wall_start,
-        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_rss_kib": peak_rss_kib(),
     }
     (ROOT / "results" / "poset-sweep-resources.json").write_text(
         json.dumps(resources_record, indent=2) + "\n", encoding="utf-8"

@@ -1,0 +1,1 @@
+{"ambient_correlated_witness_floor": "0", "averaged_all_coupling_floor": "0", "fresh_mode_floor": "1/4", "incorrect_without_fiber_value": "0", "order_integer_and_nonreduced_rational_controls": "accepted exactly", "same_component_and_frame_marginals": true, "scope": "three finite semantic/syntax regression families, not a universal proof", "variable_prior_fiber_value": "1/2"}

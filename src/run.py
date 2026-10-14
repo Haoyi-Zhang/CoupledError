@@ -1,16 +1,14 @@
 """Produce and immediately replay one exact finite certificate."""
-import argparse,json,os,resource,sys,time
+import argparse,json,os,sys,time
 from pathlib import Path
+from runtime_support import configure, peak_rss_kib
 from exact import certificate
 from verify import read_json,replay,Invalid
 
 
 def bound_process():
     # Linux reference runner; one worker, no GPU, no subprocesses in this command.
-    if hasattr(os,'sched_getaffinity'):
-        os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
-    resource.setrlimit(resource.RLIMIT_AS,(3500*1024**2,3500*1024**2))
-    resource.setrlimit(resource.RLIMIT_CPU,(40,40))
+    configure()
 
 
 def main():
@@ -33,7 +31,7 @@ def main():
             args.output.with_suffix('.scope.json').write_text(json.dumps(scope,indent=2)+'\n',encoding='utf-8')
         print(json.dumps({'loss':str(value),'cpu_seconds':time.process_time()-start,
                           'wall_seconds':time.perf_counter()-wall,
-                          'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+                          'peak_rss_kib':peak_rss_kib(),
                           'workers':1},sort_keys=True))
         return 0
     except (Invalid,ValueError,ArithmeticError,OSError,TypeError,KeyError,IndexError) as e:

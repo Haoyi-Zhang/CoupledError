@@ -1,0 +1,581 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "os": "Windows-11-10.0.28000-SP0",
+  "optimize": 1,
+  "resource_capabilities": {
+    "platform": "win32",
+    "portable_requested": true,
+    "posix_cpu_and_address_limits": false,
+    "memory_measurement": "Windows PeakWorkingSetSize",
+    "child_cpu_accounting": false
+  },
+  "peak_controller_rss_kib": 30180.0,
+  "stages": [
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/pilot.py"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.1288131000183057
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/campaign.py",
+        "grid"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.45643469999777153
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/campaign.py",
+        "stress"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 1.9200300000084098
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/campaign.py",
+        "pipeline"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.1679633999883663
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/campaign.py",
+        "controls"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.17534909999812953
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/randomization.py"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.12326639998354949
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/order_campaign.py"
+      ],
+      "requires_scipy": true,
+      "status": "UNAVAILABLE",
+      "reason": "SciPy not installed; no numerical production claimed"
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/poset_sweep.py"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.12706470000557601
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/all_posets_exhaustive.py"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.939234999998007
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/data_processing_exhaustive.py"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 1.644610899995314
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/context_exhaustive.py"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.12605079999775626
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/independent_contract_oracle.py"
+      ],
+      "requires_scipy": true,
+      "status": "UNAVAILABLE",
+      "reason": "SciPy not installed; no numerical production claimed"
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/certificate_mutation.py"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.768004799989285
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/metamorphic_invariance.py"
+      ],
+      "requires_scipy": true,
+      "status": "UNAVAILABLE",
+      "reason": "SciPy not installed; no numerical production claimed"
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/scaling_profile.py"
+      ],
+      "requires_scipy": true,
+      "status": "UNAVAILABLE",
+      "reason": "SciPy not installed; no numerical production claimed"
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/input_validation.py"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 1.6733722999924794
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/semantic_boundaries.py"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.11731909998343326
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/coefficient_regression.py"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.4045451999991201
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_reproduction_comparison.py",
+        "-v"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.28693320002639666
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_admission_regressions.py",
+        "-v"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.39906519997748546
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_transport_correspondence.py",
+        "-v"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.4223816000157967
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_available_workflows.py",
+        "-v"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.2989700000034645
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/campaign.py",
+        "replay"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.2391743000189308
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "tests/transport_cost.py",
+        "--output-dir",
+        "<audit-workspace>\\contained-optimized\\transport-cost"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.356497800006764
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "src/run.py",
+        "inputs/boundary-sensitive.json",
+        "<audit-workspace>\\contained-optimized\\command-line\\binary.json"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.14854169997852296
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "src/verify.py",
+        "inputs/boundary-sensitive.json",
+        "<audit-workspace>\\contained-optimized\\command-line\\binary.json"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.10760009998921305
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "src/run.py",
+        "--source",
+        "inputs/pipeline-model.json",
+        "<audit-workspace>\\contained-optimized\\command-line\\source.json"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.14687399999820627
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "src/verify.py",
+        "<audit-workspace>\\contained-optimized\\command-line\\source.task.json",
+        "<audit-workspace>\\contained-optimized\\command-line\\source.json"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.10344150001765229
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "src/order_run.py",
+        "inputs/order-relational.json",
+        "<audit-workspace>\\contained-optimized\\command-line\\order.json"
+      ],
+      "requires_scipy": true,
+      "status": "UNAVAILABLE",
+      "reason": "SciPy not installed; no numerical production claimed"
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "src/order_verify.py",
+        "inputs/order-relational.json",
+        "results/order-relational.certificate.json"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.10299169999780133
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "src/transport_verify.py",
+        "inputs/order-relational.json",
+        "results/order-relational.certificate.json",
+        "--convert-to",
+        "<audit-workspace>\\contained-optimized\\command-line\\transport.json"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.11798020001151599
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "src/transport_verify.py",
+        "inputs/order-relational.json",
+        "<audit-workspace>\\contained-optimized\\command-line\\transport.json"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.10999460000311956
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "src/join_tree.py",
+        "inputs/join-tree.json",
+        "<audit-workspace>\\contained-optimized\\command-line\\join.json"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.11086620000423864
+    },
+    {
+      "argv": [
+        "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "-B",
+        "-O",
+        "src/join_tree.py",
+        "inputs/join-tree.json",
+        "<audit-workspace>\\contained-optimized\\command-line\\join.json",
+        "--verify"
+      ],
+      "requires_scipy": false,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 0.11016640000161715
+    }
+  ],
+  "available_stages_passed": 29,
+  "unavailable_stages": 5,
+  "failures": 0,
+  "regenerated_file_comparisons": [
+    {
+      "file": "all-posets-exhaustive.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "boundary-sensitive.certificate.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "certificate-mutation.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "context-exhaustive.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "data-processing-exhaustive.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "exposed-mode.certificate.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "grid-certificates.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "grid.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "hidden-mode.certificate.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "input-validation.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "interior-mixture.certificate.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "negative-controls.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "pilot.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "pipeline-truth-table.csv",
+      "scientific_equal": true
+    },
+    {
+      "file": "pipeline.certificate.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "pipeline.certificate.scope.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "pipeline.certificate.task.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "pipeline.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "poset-sweep.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "randomization.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "stress-certificates.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "stress.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "variable-prior.certificate.json",
+      "scientific_equal": true
+    },
+    {
+      "file": "zero-mass.certificate.json",
+      "scientific_equal": true
+    }
+  ],
+  "full_numerical_reproduction_complete": false,
+  "temporary_fixture_root": "<audit-workspace>\\contained-optimized\\tmp",
+  "scope": "available owned finite stages only; not current Linux/SciPy reproduction or production deployment"
+}

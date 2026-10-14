@@ -12,13 +12,14 @@ import itertools
 import json
 import os
 import random
-import resource
 import sys
 import time
 from fractions import Fraction as F
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
+from runtime_support import configure, peak_rss_kib
 sys.path.insert(0, str(ROOT / "src"))
 
 
@@ -278,10 +279,7 @@ def assert_classification_regressions(cases):
 
 
 def main():
-    if hasattr(os, "sched_getaffinity"):
-        os.sched_setaffinity(0, {min(os.sched_getaffinity(0))})
-    resource.setrlimit(resource.RLIMIT_AS, (3500 * 1024**2, 3500 * 1024**2))
-    resource.setrlimit(resource.RLIMIT_CPU, (40, 40))
+    configure()
     start_cpu = time.process_time()
     start_wall = time.perf_counter()
 
@@ -429,7 +427,7 @@ def main():
             "mixed_test_duality_mismatches", "mismatches")},
         "cpu_seconds": time.process_time() - start_cpu,
         "wall_seconds": time.perf_counter() - start_wall,
-        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_rss_kib": peak_rss_kib(),
     }
     (ROOT / "results" / "independent-contract-oracle-resources.json").write_text(
         json.dumps(resources, indent=2) + "\n", encoding="utf-8")

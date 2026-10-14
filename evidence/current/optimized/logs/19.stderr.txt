@@ -1,0 +1,11 @@
+test_invalid_alternative_dual_rejected (test_reproduction_comparison.CertificateComparisonTests.test_invalid_alternative_dual_rejected) ... ok
+test_missing_record_rejected (test_reproduction_comparison.CertificateComparisonTests.test_missing_record_rejected) ... ok
+test_named_alternative_optimal_mixture_passes_early_gate (test_reproduction_comparison.CertificateComparisonTests.test_named_alternative_optimal_mixture_passes_early_gate) ... ok
+test_named_changed_declared_value_is_rejected (test_reproduction_comparison.CertificateComparisonTests.test_named_changed_declared_value_is_rejected) ... ok
+test_seed_drift_rejected (test_reproduction_comparison.CertificateComparisonTests.test_seed_drift_rejected) ... ok
+test_valid_alternative_dual (test_reproduction_comparison.CertificateComparisonTests.test_valid_alternative_dual) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.061s
+
+OK

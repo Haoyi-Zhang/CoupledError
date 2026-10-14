@@ -1,0 +1,21 @@
+{
+  "project": "P046",
+  "mode_counts_are_not_additional_instances": true,
+  "full_numerical_reproduction_complete": false,
+  "full_close": false,
+  "historical_results_unchanged": true,
+  "scientific_scope": "finite exact mathematical and owned source-model programs, not deployment",
+  "public_modes": [
+    "normal",
+    "optimized"
+  ],
+  "paired_proofs": 24,
+  "complete_driver": "reproduce.py",
+  "available_driver": "reproduce_available.py",
+  "remaining": [
+    "current complete Linux/SciPy regeneration",
+    "nearest-source fulltext/priority assessment",
+    "independent main review and installation/public CI",
+    "source-language/production abstraction evidence"
+  ]
+}

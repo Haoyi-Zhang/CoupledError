@@ -11,13 +11,14 @@ from __future__ import annotations
 import copy
 import json
 import os
-import resource
 import sys
 import time
 from fractions import Fraction
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
+from runtime_support import configure, peak_rss_kib
 sys.path.insert(0, str(ROOT / "src"))
 from order_run import certificate  # noqa: E402
 from order_verify import replay  # noqa: E402
@@ -97,8 +98,7 @@ def unique_transforms(task):
 
 
 def main():
-    if hasattr(os, "sched_getaffinity"):
-        os.sched_setaffinity(0, {min(os.sched_getaffinity(0))})
+    configure()
     start = time.perf_counter()
     cpu = time.process_time()
     checks = 0
@@ -142,7 +142,7 @@ def main():
         "result": scientific,
         "wall_seconds": time.perf_counter() - start,
         "cpu_seconds": time.process_time() - cpu,
-        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_rss_kib": peak_rss_kib(),
         "one_worker": True,
     }
     (ROOT / "results" / "metamorphic-invariance-resources.json").write_text(

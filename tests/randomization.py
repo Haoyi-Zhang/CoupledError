@@ -1,14 +1,14 @@
 """A discriminating finite randomization/abstraction check, not a workload."""
-import itertools,json,os,resource,sys,time
+import itertools,json,os,sys,time
 from fractions import Fraction as F
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
+from runtime_support import configure, peak_rss_kib
 sys.path.insert(0,str(ROOT/'src'))
 from exact import certificate
 from verify import replay
-if hasattr(os,'sched_getaffinity'):os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
-resource.setrlimit(resource.RLIMIT_AS,(3500*1024**2,3500*1024**2))
-resource.setrlimit(resource.RLIMIT_CPU,(40,40))
+configure()
 cpu=time.process_time();wall=time.perf_counter()
 def contract(p,a):return {'states':len(p),'vertices':[{'p':[str(x) for x in p],'a':[str(x) for x in a]}]}
 # Encode an AND floor as a loss to the complement-test singleton. Its floor
@@ -57,6 +57,6 @@ result={'floor_certificates':checks,'mixtures':rows,'fresh_law':serialize(fresh)
 (ROOT/'results/randomization.json').write_text(json.dumps(result,indent=2)+'\n')
 res={'stage':'randomization','workers':1,'result':{'certificates_replayed':2,'mixtures_checked':17},
      'cpu_seconds':time.process_time()-cpu,'wall_seconds':time.perf_counter()-wall,
-     'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+     'peak_rss_kib':peak_rss_kib()}
 (ROOT/'results/randomization-resources.json').write_text(json.dumps(res,indent=2)+'\n')
 print(json.dumps(res))

@@ -1,0 +1,10 @@
+test_complete_retained_contract_corpus (test_transport_correspondence.TransportCorrespondence.test_complete_retained_contract_corpus) ... ok
+test_critical_negative_obligations (test_transport_correspondence.TransportCorrespondence.test_critical_negative_obligations) ... ok
+test_nonmaximal_target_is_checked (test_transport_correspondence.TransportCorrespondence.test_nonmaximal_target_is_checked) ... ok
+test_producer_replays_before_return (test_transport_correspondence.TransportCorrespondence.test_producer_replays_before_return) ... ok
+test_small_literal_transport_oracle (test_transport_correspondence.TransportCorrespondence.test_small_literal_transport_oracle) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.042s
+
+OK

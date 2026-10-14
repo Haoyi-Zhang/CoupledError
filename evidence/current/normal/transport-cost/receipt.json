@@ -1,0 +1,21 @@
+{
+  "tasks": 24,
+  "repeats": 3,
+  "measurement_rows": 144,
+  "objective_mismatches": 0,
+  "median_full_cost_ratio_transport_over_upsets": 2.162112391116916,
+  "transport_faster_tasks": 0,
+  "scope": "same 24 retained tasks; parse+convert+serialize+two exact destination replays versus parse+upset replay; LP production excluded on both sides",
+  "representation": "destination has dense transport plus 2*k*d signed potentials; conversion still enumerates upward sets",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "os": "Windows-11-10.0.28000-SP0",
+  "optimize": 0,
+  "resource_capabilities": {
+    "platform": "win32",
+    "portable_requested": true,
+    "posix_cpu_and_address_limits": false,
+    "memory_measurement": "Windows PeakWorkingSetSize",
+    "child_cpu_accounting": false
+  },
+  "peak_process_rss_kib": 24208.0
+}

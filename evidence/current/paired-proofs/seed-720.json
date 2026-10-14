@@ -1,0 +1,132 @@
+{
+  "task": {
+    "boundary": [
+      "s0"
+    ],
+    "poset": {
+      "outcomes": [
+        "0",
+        "1"
+      ],
+      "leq": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "old": {
+      "generators": [
+        {
+          "mass": [
+            [
+              "5/6",
+              "1/6"
+            ]
+          ]
+        }
+      ]
+    },
+    "new": {
+      "generators": [
+        {
+          "mass": [
+            [
+              "1/6",
+              "5/6"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "source_certificate": {
+    "kind": "order-coupling-loss",
+    "value": "0",
+    "proofs": [
+      {
+        "value": "0",
+        "lambda": [
+          "1"
+        ],
+        "row_deficit": [
+          "0"
+        ],
+        "transport": [
+          [
+            [
+              "1/6",
+              "2/3"
+            ],
+            [
+              "0",
+              "1/6"
+            ]
+          ]
+        ],
+        "dual_alpha": "0",
+        "dual_weights": [
+          [
+            "0",
+            "0"
+          ]
+        ]
+      }
+    ],
+    "worst_generator": 0,
+    "witness": {
+      "frame": "target-law",
+      "monitor": "1[x-not-leq-y]",
+      "new_floor": "0",
+      "old_floor": "0"
+    }
+  },
+  "transport_certificate": {
+    "kind": "transport-potential-loss",
+    "value": "0",
+    "proofs": [
+      {
+        "value": "0",
+        "lambda": [
+          "1"
+        ],
+        "transport": [
+          [
+            [
+              "1/6",
+              "2/3"
+            ],
+            [
+              "0",
+              "1/6"
+            ]
+          ]
+        ],
+        "alpha": "0",
+        "left": [
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "right": [
+          [
+            "0",
+            "0"
+          ]
+        ]
+      }
+    ],
+    "worst_generator": 0,
+    "witness": {
+      "frame": "target-law",
+      "monitor": "1[x-not-leq-y]",
+      "new_floor": "0",
+      "old_floor": "0"
+    }
+  }
+}

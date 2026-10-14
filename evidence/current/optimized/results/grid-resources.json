@@ -1,0 +1,15 @@
+{
+  "cpu_seconds": 0.234375,
+  "peak_rss_kib": 28000.0,
+  "result": {
+    "boundary_states": 2,
+    "certificates_replayed": 405,
+    "contract_pairs_oracle_checked": 2025,
+    "mismatches": 0,
+    "old_contracts": 45,
+    "tester_laws": 9
+  },
+  "stage": "grid",
+  "wall_seconds": 0.28853910000179894,
+  "workers": 1
+}

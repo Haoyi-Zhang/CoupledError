@@ -1,0 +1,78 @@
+{
+  "denominator": 3,
+  "posets": 6,
+  "records": [
+    {
+      "poset": "chain2",
+      "outcomes": 2,
+      "nonempty_upward_sets": 2,
+      "laws": 4,
+      "ordered_pairs": 16,
+      "transport_upset_mismatches": 0,
+      "triangle_triples": 64,
+      "triangle_violations": 0,
+      "target_monitor_upward_violations": 0
+    },
+    {
+      "poset": "chain3",
+      "outcomes": 3,
+      "nonempty_upward_sets": 3,
+      "laws": 10,
+      "ordered_pairs": 100,
+      "transport_upset_mismatches": 0,
+      "triangle_triples": 1000,
+      "triangle_violations": 0,
+      "target_monitor_upward_violations": 0
+    },
+    {
+      "poset": "vee3",
+      "outcomes": 3,
+      "nonempty_upward_sets": 4,
+      "laws": 10,
+      "ordered_pairs": 100,
+      "transport_upset_mismatches": 0,
+      "triangle_triples": 1000,
+      "triangle_violations": 0,
+      "target_monitor_upward_violations": 0
+    },
+    {
+      "poset": "wedge3",
+      "outcomes": 3,
+      "nonempty_upward_sets": 4,
+      "laws": 10,
+      "ordered_pairs": 100,
+      "transport_upset_mismatches": 0,
+      "triangle_triples": 1000,
+      "triangle_violations": 0,
+      "target_monitor_upward_violations": 0
+    },
+    {
+      "poset": "diamond4",
+      "outcomes": 4,
+      "nonempty_upward_sets": 5,
+      "laws": 20,
+      "ordered_pairs": 400,
+      "transport_upset_mismatches": 0,
+      "triangle_triples": 8000,
+      "triangle_violations": 0,
+      "target_monitor_upward_violations": 0
+    },
+    {
+      "poset": "antichain4",
+      "outcomes": 4,
+      "nonempty_upward_sets": 15,
+      "laws": 20,
+      "ordered_pairs": 400,
+      "transport_upset_mismatches": 0,
+      "triangle_triples": 8000,
+      "triangle_violations": 0,
+      "target_monitor_upward_violations": 0
+    }
+  ],
+  "ordered_pairs": 1116,
+  "transport_upset_mismatches": 0,
+  "triangle_triples": 19064,
+  "triangle_violations": 0,
+  "target_monitor_upward_violations": 0,
+  "scope": "finite exact multi-poset cross-check; not a proof of the general theorem"
+}

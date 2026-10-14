@@ -1,0 +1,1 @@
+{"cpu_seconds": 0.0, "loss": "1/2", "peak_rss_kib": 17156.0, "wall_seconds": 0.0008360999927390367, "workers": 1}

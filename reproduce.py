@@ -16,14 +16,17 @@ from contextlib import nullcontext
 import json
 import os
 import re
-import resource
+try:
+    import resource
+except ImportError:
+    resource = None
 import shutil
 import subprocess
 import sys
 import tempfile
 import time
 from pathlib import Path
-from compare_certificates import compare_order_certificates
+from compare_certificates import compare_order_certificates, compare_order_record
 
 ROOT = Path(__file__).resolve().parent
 VOLATILE = {"cpu_seconds", "wall_seconds", "peak_rss_kib"}
@@ -58,6 +61,8 @@ def main():
     parser.add_argument("--output-dir", type=Path,
                         help="retain the isolated run tree and every stage stdout/stderr")
     args = parser.parse_args()
+    if resource is None:
+        raise RuntimeError("complete numerical reproduction requires Linux resource support; use reproduce_available.py for an explicitly partial portable run")
     output = args.output_dir.resolve() if args.output_dir else None
     if output:
         # Never overwrite a previous campaign or recursively copy this output.
@@ -104,13 +109,13 @@ def main():
                     with log_base.with_suffix(".stdout.txt").open("w", encoding="utf-8") as out, \
                             log_base.with_suffix(".stderr.txt").open("w", encoding="utf-8") as err:
                         completed = subprocess.run(
-                            [sys.executable, "-B", *args], cwd=run_root,
+                            [sys.executable, "-B", *(["-O"] if sys.flags.optimize else []), *args], cwd=run_root,
                             stdout=out, stderr=err, text=True, timeout=40, check=False)
                     completed.stdout = log_base.with_suffix(".stdout.txt").read_text(encoding="utf-8")
                     completed.stderr = log_base.with_suffix(".stderr.txt").read_text(encoding="utf-8")
                 else:
                     completed = subprocess.run(
-                        [sys.executable, "-B", *args], cwd=run_root,
+                        [sys.executable, "-B", *(["-O"] if sys.flags.optimize else []), *args], cwd=run_root,
                         capture_output=True, text=True, timeout=40, check=False)
             except subprocess.TimeoutExpired as exc:
                 if log_base:
@@ -152,6 +157,14 @@ def main():
         execute(["tests/semantic_boundaries.py"])
         execute(["-m","unittest","discover","-s","tests",
                  "-p","test_reproduction_comparison.py","-v"])
+        execute(["tests/coefficient_regression.py"])
+        execute(["-m", "unittest", "discover", "-s", "tests",
+                 "-p", "test_admission_regressions.py", "-v"])
+        execute(["-m", "unittest", "discover", "-s", "tests",
+                 "-p", "test_transport_correspondence.py", "-v"])
+        execute(["-m", "unittest", "discover", "-s", "tests",
+                 "-p", "test_available_workflows.py", "-v"])
+        execute(["tests/transport_cost.py", "--output-dir", str(temp_root / "transport-cost")])
         execute(["tests/campaign.py", "replay"])
 
         replay_record = json.loads(
@@ -289,8 +302,12 @@ def main():
 
         execute(["src/order_run.py", "inputs/order-relational.json", str(cert)])
         execute(["src/order_verify.py", "inputs/order-relational.json", str(cert)])
-        if json.loads(cert.read_text()) != json.loads(
-                (run_root / "results" / "order-relational.certificate.json").read_text()):
+        if not compare_order_record(
+                {"task": json.loads((run_root / "inputs/order-relational.json").read_text()),
+                 "certificate": json.loads((run_root / "results/order-relational.certificate.json").read_text()),
+                 "value": "1/4"},
+                {"task": json.loads((run_root / "inputs/order-relational.json").read_text()),
+                 "certificate": json.loads(cert.read_text()), "value": "1/4"}):
             raise RuntimeError("order command-line producer differs")
 
         execute(["src/join_tree.py", "inputs/join-tree.json", str(cert)])

@@ -1,0 +1,34 @@
+{
+  "boundary_states": 2,
+  "frame_joint_laws": 1,
+  "frame_prior_witnesses": [
+    {
+      "new": [
+        "1"
+      ],
+      "old": [
+        "1"
+      ],
+      "p": [
+        "1/2",
+        "1/2"
+      ]
+    }
+  ],
+  "law_scopes": [
+    [
+      "cache",
+      "fault"
+    ],
+    [
+      "idx",
+      "pre",
+      "srv"
+    ]
+  ],
+  "monotonicity_assignments": 16,
+  "new_joint_laws": 1,
+  "old_joint_laws": 1,
+  "projection": "exact image of supplied convex generators, not arbitrary constraint solving",
+  "scope_condition": "closed finite scopes; no independence inferred"
+}

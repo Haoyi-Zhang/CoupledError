@@ -1,0 +1,14 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "os": "Windows-11-10.0.28000-SP0",
+  "platform": "win32",
+  "numpy": "2.3.5",
+  "scipy": null,
+  "no_dependency_installed": true,
+  "WSL": "not installed; wsl --list --quiet attempted",
+  "CPU_CIM": {
+    "Name": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "NumberOfCores": 12,
+    "NumberOfLogicalProcessors": 20
+  }
+}

@@ -14,12 +14,6 @@ from pathlib import Path
 from order_common import (F, InputError, mix, parse_task, rat, read_json,
                           upward_sets, upset_mass)
 
-try:
-    from scipy.optimize import linprog
-except Exception as exc:  # pragma: no cover - dependency failure is explicit
-    raise SystemExit("order_run.py requires scipy.optimize.linprog") from exc
-
-
 def qstr(x):
     return str(F(x))
 
@@ -104,6 +98,12 @@ def max_ordered_transport(left, right, leq):
 
 
 def solve_target(old, target, leq):
+    # Validate the task before importing the optional numerical locator. Missing
+    # SciPy is not evidence that a malformed task was semantically rejected.
+    try:
+        from scipy.optimize import linprog
+    except ImportError as exc:
+        raise RuntimeError("numerical production requires scipy.optimize.linprog") from exc
     k, n, m = len(target), len(target[0]), len(old)
     upsets = upward_sets(leq)
     # Primal variables: lambda_0..lambda_{m-1}, t_0..t_{k-1}.
@@ -193,7 +193,7 @@ def certificate(task):
     proofs = [solve_target(old, target, leq) for target in new]
     values = [rat(p["value"]) for p in proofs]
     worst = max(range(len(values)), key=values.__getitem__)
-    return {
+    cert = {
         "kind": "order-coupling-loss",
         "value": qstr(values[worst]),
         "proofs": proofs,
@@ -205,6 +205,11 @@ def certificate(task):
             "old_floor": qstr(values[worst]),
         },
     }
+    # The CLI and API must enforce the same complete acceptance obligations as
+    # the campaign. A numerical/rationalization failure emits no proof object.
+    from order_verify import replay
+    replay(task, cert)
+    return cert
 
 
 def main():
@@ -217,7 +222,7 @@ def main():
         Path(sys.argv[2]).write_text(json.dumps(cert, indent=2)+"\n", encoding="utf-8")
         print("exact order-coupling certificate value = " + cert["value"])
         return 0
-    except (InputError, OSError, ValueError, ArithmeticError, TypeError, KeyError) as exc:
+    except (InputError, OSError, ValueError, ArithmeticError, RuntimeError, TypeError, KeyError) as exc:
         print("PRODUCER FAILED: " + str(exc), file=sys.stderr)
         return 1
 

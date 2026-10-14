@@ -1,12 +1,15 @@
 """Bounded finite validation, not a mechanized universal proof or workload study.
 
 Run each named stage separately from the repository root. Each stage is one
-worker with a 40 CPU-second limit. Results retain the exact consumed inputs.
+worker with a 40 CPU-second limit in Linux reference mode. Explicit Windows
+portable mode has no POSIX limit. Results retain the exact consumed inputs.
 """
-import argparse, copy, csv, itertools, json, os, random, resource, sys, time
+import argparse, copy, csv, itertools, json, os, random, sys, time
 from fractions import Fraction as F
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
+from runtime_support import configure, peak_rss_kib
 sys.path.insert(0,str(ROOT/'src'))
 from exact import certificate
 from verify import replay, Invalid, read_json
@@ -275,14 +278,12 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('stage',choices=['grid','stress','pipeline','controls','replay'])
     args=parser.parse_args();os.chdir(ROOT)
-    if hasattr(os,'sched_getaffinity'):os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
-    resource.setrlimit(resource.RLIMIT_AS,(3500*1024**2,3500*1024**2))
-    resource.setrlimit(resource.RLIMIT_CPU,(40,40))
+    configure()
     cpu=time.process_time();wall=time.perf_counter()
     result={'grid':grid,'stress':stress,'pipeline':pipeline,'controls':controls,'replay':replay_all}[args.stage]()
     record={'stage':args.stage,'result':result,'workers':1,
             'cpu_seconds':time.process_time()-cpu,'wall_seconds':time.perf_counter()-wall,
-            'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+            'peak_rss_kib':peak_rss_kib()}
     save(Path(f'results/{args.stage}-resources.json'),record)
     print(json.dumps(record,sort_keys=True))
 

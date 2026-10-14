@@ -19,6 +19,7 @@ def compare_order_record(a, b):
     bp=[Fraction(p['value']) for p in b['certificate']['proofs']]
     if ap!=bp:
         raise ValueError('per-generator optimum changed')
+    return True
 
 
 def compare_order_certificates(left,right):

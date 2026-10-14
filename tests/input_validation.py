@@ -2,7 +2,6 @@
 import copy
 import json
 import os
-import resource
 import subprocess
 import sys
 import tempfile
@@ -10,10 +9,12 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
+from runtime_support import configure, peak_rss_kib
 
 
 def run(args, expected, case, cwd=ROOT):
-    completed = subprocess.run([sys.executable, *args], cwd=cwd, text=True,
+    completed = subprocess.run([sys.executable, "-B", *(["-O"] if sys.flags.optimize else []), *args], cwd=cwd, text=True,
                                capture_output=True, timeout=20)
     if completed.returncode != expected:
         raise RuntimeError(
@@ -28,10 +29,7 @@ def run(args, expected, case, cwd=ROOT):
 
 
 def main():
-    if hasattr(os, "sched_getaffinity"):
-        os.sched_setaffinity(0, {min(os.sched_getaffinity(0))})
-    resource.setrlimit(resource.RLIMIT_AS, (3500 * 1024**2, 3500 * 1024**2))
-    resource.setrlimit(resource.RLIMIT_CPU, (40, 40))
+    configure()
     start_cpu = time.process_time()
     start_wall = time.perf_counter()
     records = []
@@ -161,7 +159,7 @@ def main():
             "cases_checked", "expected_rejections", "unexpected_acceptances")},
         "cpu_seconds": time.process_time() - start_cpu,
         "wall_seconds": time.perf_counter() - start_wall,
-        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_rss_kib": peak_rss_kib(),
     }
     (ROOT / "results" / "input-validation-resources.json").write_text(
         json.dumps(resources, indent=2) + "\n", encoding="utf-8")
