@@ -1,14 +1,9 @@
 # Source attribution and evidence boundaries
 
-The literature inventory was assembled on 16 September 2026. On 19 September
-2026, the load-bearing historical and closest-work records, the supplied ACM
-class record, and the current policy/venue endpoints listed with that date in
-`external_resources.csv` were rechecked. The TOPLAS author-guide endpoint still
-did not yield a complete readable primary-source page in this environment, so
-its external-submission details remain a named human recheck hold. This file
-records the technical relationship actually used to bound the manuscript's
-claims; it does not claim that every cited publication was independently
-reproduced. No third-party article bytes are distributed in this repository.
+The literature inventory was assembled on 16 September 2026. Dated source
+records are retained in `external_resources.csv`. These notes describe the
+mathematical and software relationships used in the manuscript. No third-party
+article bytes are distributed in this repository.
 
 ## Historical quantitative reliability
 
@@ -166,17 +161,6 @@ boundary-wise rectangular mixtures, and fresh per-execution modes. Existing
 convex powerdomain and probabilistic-nondeterminism work is cited; convex sets,
 lower previsions, and Kantorovich/Hausdorff liftings are not claimed as new
 mechanisms.
-
-## Venue calibration versus scientific evidence
-
-The `research-plan.md` calibration corpus contains 12 full TOPLAS articles,
-five influential theory anchors, and five adjacent full papers. That corpus
-was used to calibrate exposition: concrete motivating failures, explicit
-semantic choices, theorem dependency, proof architecture, practical examples,
-appendix use, bibliography breadth, and the role of figures/tables. It is not
-used as evidence for the main theorem and is not a statistical sample of
-accepted-paper quality. No award status, bibliography median, or acceptance
-probability is inferred.
 
 ## Current official and software resources
 
