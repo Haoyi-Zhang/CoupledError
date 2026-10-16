@@ -109,6 +109,9 @@ Ordinary transport LPs and directed set lifting are attributed foundations.
 - `tests/`: finite oracles, mutations, invariance, admission and reproduction comparisons.
 - [FORMAT.md](FORMAT.md): strict task/certificate schemas, limits and equations.
 - `proofs/`: order characterization, binary specialization and finite-oracle arguments.
+- `figures/draw_schematics.py`: four Python-direct vector schematics, with
+  embedded fonts and label-bounds checks. Optional Matplotlib dependency;
+  run with `--outdir PATH`. This does not run a scientific campaign or TeX.
 - `claim_evidence_ledger.csv`, `external_resources.csv`, and
   [source-notes.md](source-notes.md): claim, attribution and redistribution records.
 
